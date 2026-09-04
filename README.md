@@ -18,3 +18,7 @@
     4. Write reviews for subscribed services - Customers can write reviews about services they have subscribed to.
 
 2. Provider (the user with the provider role):
+    1. Create/modify/remove provider profile - Providers can create, update, and remove their profile information.
+    2. Create services - Providers can create and list services with details such as name, description, price, and availability.
+    3. View customer statistics - Providers can view statistics about customers who use or subscribe to their services.
+    4. Reply to reviews - Providers can respond to reviews left by customers for their services.
