@@ -99,6 +99,7 @@
 
 ### 2.2 Provider Stories
 
+<<<<<<< HEAD
 - **US-6 — Create a Card Listing**  
   *_Story:_* As a provider, I want to create a card listing so that I can make Pokémon cards available for customers.  
   *_Priority:_* Must  
@@ -146,7 +147,7 @@
   When the provider opens their reviews
   Then the buyer reviews are displayed
   ```
-
+  
 ## 3. Non-Functional Requirements
 
 - **Performance:** Card search results should display within 3 seconds.
