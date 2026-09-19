@@ -99,10 +99,55 @@
 
 ### 2.2 Provider Stories
 
-<!-- To be completed by Anuraj -->
+<<<<<<< HEAD
+- **US-6 — Create a Card Listing**  
+  *_Story:_* As a provider, I want to create a card listing so that I can make Pokémon cards available for customers.  
+  *_Priority:_* Must  
+  *_Acceptance:_*
 
----
+  ```gherkin
+  Scenario: Provider creates a card listing
+    Given the provider is logged in
+    When the provider submits the required information for a Pokémon card listing
+    Then the card listing is created and made available to customers
+  ```
 
+  **US-7 — Update Inventory**  
+  *_Story:_* As a provider, I want to update my inventory so that customers see accurate card availability.  
+  *_Priority:_* Must  
+  *_Acceptance:_*
+  
+  ```gherkin
+   Scenario: Provider updates inventory
+  Given the provider has an existing card listing
+  When the provider updates the inventory for the card
+  Then the updated inventory is saved and reflected in the listing
+  ```
+
+  **US-8 — View Sales Statistics**  
+  *_Story:_* As a provider, I want to view my sales statistics so that I can track my sales activity.  
+  *_Priority:_* Must  
+  *_Acceptance:_*
+  
+  ```gherkin
+   Scenario: Provider views sales statistics
+  Given the provider has sales data
+  When the provider views their sales statistics
+  Then the provider's sales statistics are displayed
+  ```
+  
+  **US-9 — See Reviews from Buyers**  
+  *_Story:_* As a provider, I want to view my sales statistics so that I can track my sales activity.  
+  *_Priority:_* Must  
+  *_Acceptance:_*
+  
+  ```gherkin
+   Scenario: Provider views buyer reviews
+  Given buyers have submitted reviews for the provider's cards
+  When the provider opens their reviews
+  Then the buyer reviews are displayed
+  ```
+  
 ## 3. Non-Functional Requirements
 
 - **Performance:** Card search results should display within 3 seconds.
