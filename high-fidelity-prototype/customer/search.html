@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Search Cards | PokeVerse</title>
+
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/customer.css">
+    <link rel="icon" type="image/png" href="../images/poke.png">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <a href="../index.html" class="logo">
+            <img src="../images/PokeVerse-logo.png" alt="PokeVerse Logo">
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="search.html">Shop Cards</a>
+            <a href="cart.html">Cart</a>
+            <a href="history.html">Orders</a>
+            <a href="tutorial.html">Tutorial</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="../login.html" class="login-btn">Login</a>
+            <a href="../register.html" class="signup-btn">Sign Up</a>
+        </div>
+
+    </header>
+
+
+    <!-- SEARCH PAGE -->
+    <main class="search-page">
+
+        <!-- SEARCH HEADER -->
+        <section class="search-header">
+
+            <p class="search-eyebrow">
+                POKEVERSE MARKETPLACE
+            </p>
+
+            <h1>
+                Find Your Next Pokémon Card
+            </h1>
+
+            <p>
+                Search cards by Pokémon name, set, type, or price.
+            </p>
+
+            <div class="search-bar-large">
+
+                <input
+                    type="text"
+                    placeholder="Search Pikachu, Charizard, Mew..."
+                >
+
+                <button type="button">
+                    Search
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- MARKETPLACE -->
+        <section class="marketplace-layout">
+
+            <!-- FILTER PANEL -->
+            <aside class="filter-panel">
+
+                <h2>Filters</h2>
+
+
+                <!-- CARD TYPE -->
+                <details class="filter-dropdown" open>
+
+                    <summary>
+                        Card Type
+                    </summary>
+
+                    <div class="filter-options">
+
+                        <label>
+                            <input type="checkbox">
+                            Fire
+                        </label>
+
+                        <label>
+                            <input type="checkbox">
+                            Water
+                        </label>
+
+                        <label>
+                            <input type="checkbox">
+                            Electric
+                        </label>
+
+                        <label>
+                            <input type="checkbox">
+                            Psychic
+                        </label>
+
+                        <label>
+                            <input type="checkbox">
+                            Grass
+                        </label>
+
+                    </div>
+
+                </details>
+
+
+                <!-- PRICE -->
+                <details class="filter-dropdown">
+
+                    <summary>
+                        Price
+                    </summary>
+
+                    <div class="filter-options">
+
+                        <label>
+                            <input type="checkbox">
+                            Under $25
+                        </label>
+
+                        <label>
+                            <input type="checkbox">
+                            $25 - $50
+                        </label>
+
+                        <label>
+                            <input type="checkbox">
+                            $50 - $100
+                        </label>
+
+                        <label>
+                            <input type="checkbox">
+                            $100+
+                        </label>
+
+                    </div>
+
+                </details>
+
+
+                <!-- SET -->
+                <details class="filter-dropdown">
+
+                    <summary>
+                        Set
+                    </summary>
+
+                    <div class="filter-options">
+
+                        <label>
+                            <input type="checkbox">
+                            151 Collection
+                        </label>
+
+                        <label>
+                            <input type="checkbox">
+                            Scarlet & Violet
+                        </label>
+
+                        <label>
+                            <input type="checkbox">
+                            Paldean Fates
+                        </label>
+
+                        <label>
+                            <input type="checkbox">
+                            Crown Zenith
+                        </label>
+
+                    </div>
+
+                </details>
+
+
+                <!-- CONDITION -->
+                <details class="filter-dropdown">
+
+                    <summary>
+                        Condition
+                    </summary>
+
+                    <div class="filter-options">
+
+                        <label>
+                            <input type="checkbox">
+                            Near Mint
+                        </label>
+
+                        <label>
+                            <input type="checkbox">
+                            Lightly Played
+                        </label>
+
+                        <label>
+                            <input type="checkbox">
+                            Moderately Played
+                        </label>
+
+                    </div>
+
+                </details>
+
+            </aside>
+
+
+            <!-- SEARCH RESULTS -->
+            <section class="search-results">
+
+                <div class="results-heading">
+
+                    <h2>
+                        Available Cards
+                    </h2>
+
+                    <select>
+                        <option>Sort by</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                        <option>Newest</option>
+                        <option>Name: A-Z</option>
+                    </select>
+
+                </div>
+
+
+                <div class="card-results-grid">
+
+                    <!-- PIKACHU -->
+                    <article class="market-card">
+
+                        <div class="market-card-image">
+                            ⚡
+                        </div>
+
+                        <h3>
+                            Pikachu
+                        </h3>
+
+                        <p>
+                            151 Collection
+                        </p>
+
+                        <strong>
+                            $39.99
+                        </strong>
+
+                        <button type="button">
+                            Add to Cart
+                        </button>
+
+                    </article>
+
+
+                    <!-- CHARIZARD -->
+                    <article class="market-card">
+
+                        <div class="market-card-image">
+                            🔥
+                        </div>
+
+                        <h3>
+                            Charizard
+                        </h3>
+
+                        <p>
+                            Scarlet & Violet
+                        </p>
+
+                        <strong>
+                            $89.99
+                        </strong>
+
+                        <button type="button">
+                            Add to Cart
+                        </button>
+
+                    </article>
+
+
+                    <!-- MEW -->
+                    <article class="market-card">
+
+                        <div class="market-card-image">
+                            ✨
+                        </div>
+
+                        <h3>
+                            Mew
+                        </h3>
+
+                        <p>
+                            Paldean Fates
+                        </p>
+
+                        <strong>
+                            $54.99
+                        </strong>
+
+                        <button type="button">
+                            Add to Cart
+                        </button>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <h3>
+            PokeVerse
+        </h3>
+
+        <p>
+            Buy. Sell. Collect.
+        </p>
+
+        <p>
+            CSC 340 Software Engineering Project
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

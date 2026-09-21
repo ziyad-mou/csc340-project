@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Cart | PokeVerse</title>
+
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/customer.css">
+    <link rel="icon" type="image/png" href="../images/poke.png">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <a href="../index.html" class="logo">
+            <img src="../images/PokeVerse-logo.png" alt="PokeVerse Logo">
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="search.html">Shop Cards</a>
+            <a href="cart.html">Cart</a>
+            <a href="history.html">Orders</a>
+            <a href="tutorial.html">Tutorial</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="../login.html" class="login-btn">Login</a>
+            <a href="../register.html" class="signup-btn">Sign Up</a>
+        </div>
+
+    </header>
+
+
+    <!-- CART PAGE -->
+    <main class="cart-page">
+
+        <section class="cart-header">
+
+            <p class="cart-eyebrow">
+                YOUR POKEVERSE CART
+            </p>
+
+            <h1>Your Cart</h1>
+
+            <p>
+                Review the Pokémon cards you want before checking out.
+            </p>
+
+        </section>
+
+
+        <section class="cart-layout">
+
+            <!-- CART ITEMS -->
+            <div class="cart-items">
+
+                <article class="cart-item">
+
+                    <div class="cart-item-image">
+                        ⚡
+                    </div>
+
+                    <div class="cart-item-info">
+
+                        <h2>Pikachu</h2>
+
+                        <p>151 Collection</p>
+
+                        <span>Near Mint</span>
+
+                    </div>
+
+                    <div class="cart-item-quantity">
+
+                        <label for="pikachu-qty">
+                            Quantity
+                        </label>
+
+                        <select id="pikachu-qty">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+
+                    </div>
+
+                    <div class="cart-item-price">
+                        $39.99
+                    </div>
+
+                    <button class="remove-item" type="button">
+                        Remove
+                    </button>
+
+                </article>
+
+
+                <article class="cart-item">
+
+                    <div class="cart-item-image">
+                        🔥
+                    </div>
+
+                    <div class="cart-item-info">
+
+                        <h2>Charizard</h2>
+
+                        <p>Scarlet & Violet</p>
+
+                        <span>Near Mint</span>
+
+                    </div>
+
+                    <div class="cart-item-quantity">
+
+                        <label for="charizard-qty">
+                            Quantity
+                        </label>
+
+                        <select id="charizard-qty">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+
+                    </div>
+
+                    <div class="cart-item-price">
+                        $89.99
+                    </div>
+
+                    <button class="remove-item" type="button">
+                        Remove
+                    </button>
+
+                </article>
+
+            </div>
+
+
+            <!-- ORDER SUMMARY -->
+            <aside class="order-summary">
+
+                <h2>Order Summary</h2>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <strong>$129.98</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <strong>$5.00</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Tax</span>
+                    <strong>$9.10</strong>
+                </div>
+
+                <div class="summary-total">
+                    <span>Total</span>
+                    <strong>$144.08</strong>
+                </div>
+
+                <button type="button" class="checkout-btn">
+                    Proceed to Checkout
+                </button>
+
+                <a href="search.html" class="continue-shopping">
+                    ← Continue Shopping
+                </a>
+
+            </aside>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <h3>PokeVerse</h3>
+
+        <p>Buy. Sell. Collect.</p>
+
+        <p>CSC 340 Software Engineering Project</p>
+
+    </footer>
+
+</body>
+
+</html>

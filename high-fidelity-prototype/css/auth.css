@@ -1,0 +1,275 @@
+/* =========================================================
+   AUTH PAGES - LOGIN / REGISTER
+========================================================= */
+
+.auth-page {
+    max-width: none;
+    margin: 0;
+    padding: 70px 20px;
+
+    min-height: 70vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    background: #f8fafc;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 620px;
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+
+    padding: 45px;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+
+    text-align: left;
+}
+
+.auth-eyebrow {
+    color: #e63946;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+}
+
+.auth-card h1 {
+    margin: 0 0 12px;
+
+    font-size: 38px;
+
+    color: #111827;
+}
+
+.auth-description {
+    color: #6b7280;
+
+    line-height: 1.6;
+
+    margin-bottom: 30px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.form-group > label {
+    font-weight: bold;
+
+    color: #374151;
+
+    font-size: 15px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 9px;
+
+    font-size: 16px;
+
+    outline: none;
+
+    background: white;
+}
+
+.form-group input:focus {
+    border-color: #e63946;
+
+    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.12);
+}
+
+
+/* ROLE SELECTION */
+
+.role-choice {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+}
+
+.role-choice-card {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 12px;
+
+    padding: 18px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+    background: #f9fafb;
+}
+
+.role-choice-card:hover {
+    border-color: #e63946;
+
+    background: #fff5f5;
+}
+
+.role-choice-card input {
+    margin-top: 4px;
+
+    accent-color: #e63946;
+}
+
+.role-choice-card span {
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+.role-choice-card strong {
+    color: #111827;
+
+    font-size: 16px;
+}
+
+
+/* SUBMIT BUTTON */
+
+.auth-submit {
+    width: 100%;
+
+    border: none;
+
+    background: #e63946;
+    color: white;
+
+    padding: 15px;
+
+    border-radius: 9px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.auth-submit:hover {
+    background: #c92f3b;
+}
+
+
+/* LOGIN / REGISTER SWITCH */
+
+.auth-switch {
+    margin: 26px 0 0;
+
+    text-align: center;
+
+    color: #6b7280;
+}
+
+.auth-switch a {
+    color: #e63946;
+
+    font-weight: bold;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+
+/* RESPONSIVE AUTH PAGE */
+
+@media (max-width: 600px) {
+
+    .auth-page {
+        padding: 40px 15px;
+    }
+
+    .auth-card {
+        padding: 30px 22px;
+    }
+
+    .auth-card h1 {
+        font-size: 32px;
+    }
+
+    .role-choice {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================================
+   LOGIN PAGE
+========================================================= */
+
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 14px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: #4b5563;
+}
+
+.remember-me input {
+    accent-color: #e63946;
+}
+
+.login-options a {
+    color: #e63946;
+    font-weight: bold;
+}
+
+.login-options a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 500px) {
+
+    .login-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+}

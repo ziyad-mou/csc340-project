@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | PokeVerse</title>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link rel="icon" type="image/png" href="images/poke.png">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <a href="index.html" class="logo">
+            <img src="images/PokeVerse-logo.png" alt="PokeVerse Logo">
+        </a>
+
+        <nav>
+            <a href="index.html#features">Features</a>
+            <a href="index.html#how-it-works">How It Works</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="register.html" class="signup-btn">Sign Up</a>
+        </div>
+
+    </header>
+
+
+    <!-- REGISTER PAGE -->
+    <main class="auth-page">
+
+        <section class="auth-card">
+
+            <p class="auth-eyebrow">
+                JOIN POKEVERSE
+            </p>
+
+            <h1>Create Your Account</h1>
+
+            <p class="auth-description">
+                Create a profile and start exploring the Pokémon card marketplace.
+            </p>
+
+
+            <form class="auth-form">
+
+                <div class="form-group">
+                    <label for="name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your full name"
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="email">
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Create a password"
+                    >
+                </div>
+
+
+                <div class="form-group">
+                    <label for="confirm-password">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirm-password"
+                        placeholder="Confirm your password"
+                    >
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        I want to join as:
+                    </label>
+
+                    <div class="role-choice">
+
+                        <label class="role-choice-card">
+                            <input
+                                type="radio"
+                                name="role"
+                                value="customer"
+                                checked
+                            >
+
+                            <span>
+                                <strong>Customer</strong>
+                                Buy and collect Pokémon cards
+                            </span>
+                        </label>
+
+
+                        <label class="role-choice-card">
+                            <input
+                                type="radio"
+                                name="role"
+                                value="provider"
+                            >
+
+                            <span>
+                                <strong>Provider</strong>
+                                List and sell Pokémon cards
+                            </span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <button type="button" class="auth-submit">
+                    Create Account
+                </button>
+
+            </form>
+
+
+            <p class="auth-switch">
+                Already have an account?
+                <a href="login.html">Login</a>
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <h3>PokeVerse</h3>
+
+        <p>Buy. Sell. Collect.</p>
+
+        <p>CSC 340 Software Engineering Project</p>
+
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+/* Compatibility entry point. Pages load base.css and their page stylesheet directly. */
+@import url("css/base.css");
+@import url("css/home.css");
+@import url("css/customer.css");
+@import url("css/auth.css");
+@import url("css/provider.css");
