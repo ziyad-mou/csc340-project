@@ -99,7 +99,6 @@
 
 ### 2.2 Provider Stories
 
-<<<<<<< HEAD
 - **US-6 — Create a Card Listing**  
   *_Story:_* As a provider, I want to create a card listing so that I can make Pokémon cards available for customers.  
   *_Priority:_* Must  
@@ -137,7 +136,7 @@
   ```
   
   **US-9 — See Reviews from Buyers**  
-  *_Story:_* As a provider, I want to view my sales statistics so that I can track my sales activity.  
+  *_Story:_* As a provider, I want to read and reply to buyer reviews so that I can respond to customer feedback.
   *_Priority:_* Must  
   *_Acceptance:_*
   

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your seller dashboard | PokeVerse</title>
+    <link rel="icon" href="../images/poke.png" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/provider.css" />
+    <script defer src="provider.js"></script>
+  </head>
+  <body data-page="index">
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="navbar">
+      <a class="logo" href="../index.html"
+        ><img src="../images/PokeVerse-logo.png" alt="PokeVerse home" /></a
+      ><span class="seller-label">SELLER CENTER</span
+      ><a class="login-btn" href="../customer/index.html">Buyer view</a>
+    </header>
+    <nav class="seller-nav" aria-label="Seller navigation">
+      <a href="index.html" aria-current="page">Dashboard</a
+      ><a href="inventory.html">Inventory</a
+      ><a href="create-listing.html">New Listing</a
+      ><a href="statistics.html">Sales</a><a href="reviews.html">Reviews</a
+      ><a href="profile.html">Profile</a>
+    </nav>
+    <main class="seller-main" id="content">
+      <div class="page-heading">
+        <p class="eyebrow">POKEVERSE / SELLER CENTER</p>
+        <h1>Your seller dashboard</h1>
+        <p>
+          Manage your shop and help collectors find their next favorite product.
+        </p>
+      </div>
+      <p class="demo-note">
+        Prototype demo · Sample products and sales · Changes stay in this
+        browser
+      </p>
+      <p id="notice" role="status" hidden></p>
+      <noscript
+        ><p>
+          Enable JavaScript to try the seller forms and interactive demo.
+        </p></noscript
+      >
+      <div class="metrics" id="dashboard-metrics"></div>
+      <div class="two-col">
+        <section class="panel">
+          <div class="section-top">
+            <h2>Your inventory</h2>
+            <a href="inventory.html">Manage inventory →</a>
+          </div>
+          <div id="dashboard-products"></div>
+        </section>
+        <aside class="panel">
+          <p class="eyebrow">NEXT STEPS</p>
+          <h2>Keep your shop ready</h2>
+          <p>
+            Add a product, keep stock up to date, and stay connected with your
+            buyers.
+          </p>
+          <a class="button" href="create-listing.html">+ Create a listing</a
+          ><a class="action-link" href="reviews.html"
+            >Read and reply to reviews →</a
+          ><a class="action-link" href="profile.html"
+            >Manage your seller profile →</a
+          >
+        </aside>
+      </div>
+    </main>
+    <footer>
+      <h3>PokeVerse</h3>
+      <p>Buy. Sell. Collect.</p>
+      <p>CSC 340 Software Engineering Project</p>
+    </footer>
+  </body>
+</html>

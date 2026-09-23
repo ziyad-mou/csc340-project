@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buyer reviews | PokeVerse</title>
+    <link rel="icon" href="../images/poke.png" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/provider.css" />
+    <script defer src="provider.js"></script>
+  </head>
+  <body data-page="reviews">
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="navbar">
+      <a class="logo" href="../index.html"
+        ><img src="../images/PokeVerse-logo.png" alt="PokeVerse home" /></a
+      ><span class="seller-label">SELLER CENTER</span
+      ><a class="login-btn" href="../customer/index.html">Buyer view</a>
+    </header>
+    <nav class="seller-nav" aria-label="Seller navigation">
+      <a href="index.html">Dashboard</a><a href="inventory.html">Inventory</a
+      ><a href="create-listing.html">New Listing</a
+      ><a href="statistics.html">Sales</a
+      ><a href="reviews.html" aria-current="page">Reviews</a
+      ><a href="profile.html">Profile</a>
+    </nav>
+    <main class="seller-main" id="content">
+      <div class="page-heading">
+        <p class="eyebrow">POKEVERSE / SELLER CENTER</p>
+        <h1>Buyer reviews</h1>
+        <p>Read feedback and reply to your customers.</p>
+      </div>
+      <p class="demo-note">
+        Prototype demo · Sample products and sales · Changes stay in this
+        browser
+      </p>
+      <p id="notice" role="status" hidden></p>
+      <noscript
+        ><p>
+          Enable JavaScript to try the seller forms and interactive demo.
+        </p></noscript
+      >
+      <div class="toolbar">
+        <p><strong>4.7 / 5</strong> from 3 sample reviews</p>
+        <label
+          >Show<select id="review-filter">
+            <option value="all">All reviews</option>
+            <option value="unanswered">Needs a reply</option>
+            <option value="answered">Replied</option>
+          </select></label
+        >
+      </div>
+      <div id="review-list"></div>
+    </main>
+    <footer>
+      <h3>PokeVerse</h3>
+      <p>Buy. Sell. Collect.</p>
+      <p>CSC 340 Software Engineering Project</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create a listing | PokeVerse</title>
+    <link rel="icon" href="../images/poke.png" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/provider.css" />
+    <script defer src="provider.js"></script>
+  </head>
+  <body data-page="create-listing">
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="navbar">
+      <a class="logo" href="../index.html"
+        ><img src="../images/PokeVerse-logo.png" alt="PokeVerse home" /></a
+      ><span class="seller-label">SELLER CENTER</span
+      ><a class="login-btn" href="../customer/index.html">Buyer view</a>
+    </header>
+    <nav class="seller-nav" aria-label="Seller navigation">
+      <a href="index.html">Dashboard</a><a href="inventory.html">Inventory</a
+      ><a href="create-listing.html" aria-current="page">New Listing</a
+      ><a href="statistics.html">Sales</a><a href="reviews.html">Reviews</a
+      ><a href="profile.html">Profile</a>
+    </nav>
+    <main class="seller-main" id="content">
+      <div class="page-heading">
+        <p class="eyebrow">POKEVERSE / SELLER CENTER</p>
+        <h1>Create a listing</h1>
+        <p>Add a Pokémon TCG product to your shop.</p>
+      </div>
+      <p class="demo-note">
+        Prototype demo · Sample products and sales · Changes stay in this
+        browser
+      </p>
+      <p id="notice" role="status" hidden></p>
+      <noscript
+        ><p>
+          Enable JavaScript to try the seller forms and interactive demo.
+        </p></noscript
+      >
+      <form id="listing-form" class="two-col">
+        <section class="panel">
+          <h2>Product details</h2>
+          <label
+            >Product name<input
+              name="name"
+              required
+              maxlength="100"
+              placeholder="e.g. 30th Celebration Ex Box" /></label
+          ><label
+            >Description<textarea
+              name="description"
+              required
+              maxlength="1000"
+              rows="4"
+              placeholder="Describe the contents and condition"
+            ></textarea>
+          </label>
+          <div class="form-grid">
+            <label
+              >Price ($)<input
+                name="price"
+                type="number"
+                min="0.01"
+                max="99999"
+                step="0.01"
+                required /></label
+            ><label
+              >Quantity<input
+                name="stock"
+                type="number"
+                min="0"
+                max="99999"
+                step="1"
+                required
+            /></label>
+          </div>
+          <label
+            >Product type<select name="category">
+              <option>Sealed box</option>
+              <option>Booster pack</option>
+              <option>Collection</option>
+              <option>Single card</option>
+            </select></label
+          ><label
+            >Product image<select name="image">
+              <option value="ex-box.png">Ex Box</option>
+              <option value="elite.png">Elite Trainer Box</option>
+              <option value="tech-sticker.png">Tech Sticker Collection</option>
+              <option value="poster-collection.png">Poster Collection</option>
+              <option value="knock-out.png">Knock Out Collection</option>
+            </select></label
+          >
+          <div class="button-row">
+            <button type="submit">Save listing</button
+            ><a class="button secondary" href="inventory.html">Cancel</a>
+          </div>
+        </section>
+        <aside class="panel preview">
+          <p class="eyebrow">LISTING PREVIEW</p>
+          <img
+            id="preview-image"
+            src="../images/ex-box.png"
+            alt="Selected product"
+          />
+          <h2 id="preview-name">Your product name</h2>
+          <p id="preview-description">
+            Your product description will appear here.
+          </p>
+          <strong id="preview-price">$0.00</strong>
+          <p id="preview-stock">0 available</p>
+        </aside>
+      </form>
+    </main>
+    <footer>
+      <h3>PokeVerse</h3>
+      <p>Buy. Sell. Collect.</p>
+      <p>CSC 340 Software Engineering Project</p>
+    </footer>
+  </body>
+</html>

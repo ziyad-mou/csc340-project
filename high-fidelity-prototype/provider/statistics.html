@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sales statistics | PokeVerse</title>
+    <link rel="icon" href="../images/poke.png" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/provider.css" />
+    <script defer src="provider.js"></script>
+  </head>
+  <body data-page="statistics">
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="navbar">
+      <a class="logo" href="../index.html"
+        ><img src="../images/PokeVerse-logo.png" alt="PokeVerse home" /></a
+      ><span class="seller-label">SELLER CENTER</span
+      ><a class="login-btn" href="../customer/index.html">Buyer view</a>
+    </header>
+    <nav class="seller-nav" aria-label="Seller navigation">
+      <a href="index.html">Dashboard</a><a href="inventory.html">Inventory</a
+      ><a href="create-listing.html">New Listing</a
+      ><a href="statistics.html" aria-current="page">Sales</a
+      ><a href="reviews.html">Reviews</a><a href="profile.html">Profile</a>
+    </nav>
+    <main class="seller-main" id="content">
+      <div class="page-heading">
+        <p class="eyebrow">POKEVERSE / SELLER CENTER</p>
+        <h1>Sales statistics</h1>
+        <p>See how your shop is doing with sample sales data.</p>
+      </div>
+      <p class="demo-note">
+        Prototype demo · Sample products and sales · Changes stay in this
+        browser
+      </p>
+      <p id="notice" role="status" hidden></p>
+      <noscript
+        ><p>
+          Enable JavaScript to try the seller forms and interactive demo.
+        </p></noscript
+      >
+      <div class="toolbar">
+        <label
+          >Time period<select id="period">
+            <option value="7">Last 7 days</option>
+            <option value="30">Last 30 days</option>
+          </select></label
+        >
+      </div>
+      <div class="metrics" id="sales-metrics"></div>
+      <div class="two-col">
+        <section class="panel">
+          <h2>Sales by product</h2>
+          <div id="sales-bars"></div>
+        </section>
+        <section class="panel">
+          <h2>Recent sales</h2>
+          <div class="table-wrap">
+            <table>
+              <caption class="sr-only">
+                Sample recent sales
+              </caption>
+              <thead>
+                <tr>
+                  <th>Order</th>
+                  <th>Product</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>PV-1042</td>
+                  <td>Ex Box</td>
+                  <td>$49.99</td>
+                </tr>
+                <tr>
+                  <td>PV-1041</td>
+                  <td>Elite Trainer Box</td>
+                  <td>$99.99</td>
+                </tr>
+                <tr>
+                  <td>PV-1040</td>
+                  <td>Tech Sticker</td>
+                  <td>$34.99</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="muted">
+            Sample completed orders. Editing inventory does not create a sale.
+          </p>
+        </section>
+      </div>
+    </main>
+    <footer>
+      <h3>PokeVerse</h3>
+      <p>Buy. Sell. Collect.</p>
+      <p>CSC 340 Software Engineering Project</p>
+    </footer>
+  </body>
+</html>
