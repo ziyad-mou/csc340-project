@@ -7,18 +7,24 @@
 
     <title>Purchase History | PokeVerse</title>
 
+    <link rel="icon" type="image/png" href="../images/poke.png">
+
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/customer.css">
-    <link rel="icon" type="image/png" href="../images/poke.png">
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
     <header class="navbar">
 
         <a href="../index.html" class="logo">
-            <img src="../images/PokeVerse-logo.png" alt="PokeVerse Logo">
+            <img
+                src="../images/PokeVerse-logo.png"
+                alt="PokeVerse Logo"
+            >
         </a>
 
         <nav>
@@ -30,183 +36,414 @@
         </nav>
 
         <div class="nav-buttons">
-            <a href="../login.html" class="login-btn">Login</a>
-            <a href="../register.html" class="signup-btn">Sign Up</a>
+
+            <a href="../login.html" class="login-btn">
+                Login
+            </a>
+
+            <a href="../register.html" class="signup-btn">
+                Sign Up
+            </a>
+
         </div>
 
     </header>
 
 
-    <!-- PURCHASE HISTORY PAGE -->
-    <main class="history-page">
+    <!-- =====================================================
+         HISTORY HEADER
+    ====================================================== -->
+    <section class="history-page-header">
 
-        <section class="history-header">
+        <p class="section-label">
+            YOUR POKEVERSE ORDERS
+        </p>
 
-            <p class="history-eyebrow">
-                YOUR POKEVERSE ORDERS
-            </p>
+        <h1>
+            Purchase History
+        </h1>
 
-            <h1>Purchase History</h1>
+        <p>
+            View your previous Pokémon purchases and order status.
+        </p>
 
-            <p>
-                Review your previous Pokémon card purchases and order details.
-            </p>
-
-        </section>
+    </section>
 
 
-        <section class="history-list">
+    <!-- =====================================================
+         PURCHASE HISTORY
+    ====================================================== -->
+    <main class="history-container">
 
-            <!-- ORDER 1 -->
-            <article class="order-card">
 
-                <div class="order-top">
+        <!-- =================================================
+             ORDER 1
+        ================================================== -->
+        <article class="order-card">
 
-                    <div>
-                        <span class="order-label">Order</span>
-                        <h2>#PV-1048</h2>
-                    </div>
+            <div class="order-card-header">
 
-                    <div>
-                        <span class="order-label">Date</span>
-                        <p>September 12, 2026</p>
-                    </div>
+                <div>
 
-                    <div>
-                        <span class="order-label">Total</span>
-                        <p>$94.99</p>
-                    </div>
-
-                    <span class="order-status delivered">
-                        Delivered
+                    <span class="order-label">
+                        Order
                     </span>
 
-                </div>
-
-
-                <div class="order-item">
-
-                    <div class="order-item-image">
-                        🔥
-                    </div>
-
-                    <div class="order-item-info">
-                        <h3>Charizard</h3>
-                        <p>Scarlet & Violet</p>
-                        <span>Near Mint</span>
-                    </div>
-
-                    <strong>$89.99</strong>
+                    <strong>
+                        #PV-1048
+                    </strong>
 
                 </div>
 
-            </article>
 
+                <div>
 
-            <!-- ORDER 2 -->
-            <article class="order-card">
-
-                <div class="order-top">
-
-                    <div>
-                        <span class="order-label">Order</span>
-                        <h2>#PV-1019</h2>
-                    </div>
-
-                    <div>
-                        <span class="order-label">Date</span>
-                        <p>August 28, 2026</p>
-                    </div>
-
-                    <div>
-                        <span class="order-label">Total</span>
-                        <p>$44.99</p>
-                    </div>
-
-                    <span class="order-status delivered">
-                        Delivered
+                    <span class="order-label">
+                        Date
                     </span>
 
-                </div>
-
-
-                <div class="order-item">
-
-                    <div class="order-item-image">
-                        ⚡
-                    </div>
-
-                    <div class="order-item-info">
-                        <h3>Pikachu</h3>
-                        <p>151 Collection</p>
-                        <span>Near Mint</span>
-                    </div>
-
-                    <strong>$39.99</strong>
+                    <strong>
+                        Sep 12, 2026
+                    </strong>
 
                 </div>
 
-            </article>
 
+                <div>
 
-            <!-- ORDER 3 -->
-            <article class="order-card">
-
-                <div class="order-top">
-
-                    <div>
-                        <span class="order-label">Order</span>
-                        <h2>#PV-0991</h2>
-                    </div>
-
-                    <div>
-                        <span class="order-label">Date</span>
-                        <p>August 10, 2026</p>
-                    </div>
-
-                    <div>
-                        <span class="order-label">Total</span>
-                        <p>$59.99</p>
-                    </div>
-
-                    <span class="order-status shipped">
-                        Shipped
+                    <span class="order-label">
+                        Total
                     </span>
 
-                </div>
-
-
-                <div class="order-item">
-
-                    <div class="order-item-image">
-                        ✨
-                    </div>
-
-                    <div class="order-item-info">
-                        <h3>Mew</h3>
-                        <p>Paldean Fates</p>
-                        <span>Lightly Played</span>
-                    </div>
-
-                    <strong>$54.99</strong>
+                    <strong>
+                        $134.98
+                    </strong>
 
                 </div>
 
-            </article>
 
-        </section>
+                <span class="order-status delivered">
+                    Delivered
+                </span>
+
+            </div>
+
+
+            <!-- Elite Trainer Box -->
+            <div class="history-product">
+
+                <div class="history-product-image">
+
+                    <img
+                        src="../images/elite.png"
+                        alt="Pokemon 30th Celebration Elite Trainer Box"
+                    >
+
+                </div>
+
+
+                <div class="history-product-info">
+
+                    <h3>
+                        30th Celebration Elite Trainer Box
+                    </h3>
+
+                    <p>
+                        Pokémon TCG
+                    </p>
+
+                    <p>
+                        Condition: New
+                    </p>
+
+                </div>
+
+
+                <strong class="history-product-price">
+                    $99.99
+                </strong>
+
+            </div>
+
+
+            <!-- Tech Sticker -->
+            <div class="history-product">
+
+                <div class="history-product-image">
+
+                    <img
+                        src="../images/tech-sticker.png"
+                        alt="Pokemon 30th Celebration Tech Sticker Collection"
+                    >
+
+                </div>
+
+
+                <div class="history-product-info">
+
+                    <h3>
+                        30th Celebration Tech Sticker Collection
+                    </h3>
+
+                    <p>
+                        Pokémon TCG
+                    </p>
+
+                    <p>
+                        Condition: New
+                    </p>
+
+                </div>
+
+
+                <strong class="history-product-price">
+                    $34.99
+                </strong>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             ORDER 2
+        ================================================== -->
+        <article class="order-card">
+
+            <div class="order-card-header">
+
+                <div>
+
+                    <span class="order-label">
+                        Order
+                    </span>
+
+                    <strong>
+                        #PV-1019
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span class="order-label">
+                        Date
+                    </span>
+
+                    <strong>
+                        Aug 28, 2026
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span class="order-label">
+                        Total
+                    </span>
+
+                    <strong>
+                        $89.98
+                    </strong>
+
+                </div>
+
+
+                <span class="order-status delivered">
+                    Delivered
+                </span>
+
+            </div>
+
+
+            <!-- Ex Box -->
+            <div class="history-product">
+
+                <div class="history-product-image">
+
+                    <img
+                        src="../images/ex-box.png"
+                        alt="Pokemon 30th Celebration Ex Box"
+                    >
+
+                </div>
+
+
+                <div class="history-product-info">
+
+                    <h3>
+                        30th Celebration Ex Box
+                    </h3>
+
+                    <p>
+                        Pokémon TCG
+                    </p>
+
+                    <p>
+                        Condition: New
+                    </p>
+
+                </div>
+
+
+                <strong class="history-product-price">
+                    $49.99
+                </strong>
+
+            </div>
+
+
+            <!-- Poster Collection -->
+            <div class="history-product">
+
+                <div class="history-product-image">
+
+                    <img
+                        src="../images/poster-collection.png"
+                        alt="Pokemon 30th Celebration Poster Collection Box"
+                    >
+
+                </div>
+
+
+                <div class="history-product-info">
+
+                    <h3>
+                        30th Celebration Poster Collection Box
+                    </h3>
+
+                    <p>
+                        Pokémon TCG
+                    </p>
+
+                    <p>
+                        Condition: New
+                    </p>
+
+                </div>
+
+
+                <strong class="history-product-price">
+                    $39.99
+                </strong>
+
+            </div>
+
+        </article>
+
+
+        <!-- =================================================
+             ORDER 3
+        ================================================== -->
+        <article class="order-card">
+
+            <div class="order-card-header">
+
+                <div>
+
+                    <span class="order-label">
+                        Order
+                    </span>
+
+                    <strong>
+                        #PV-0991
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span class="order-label">
+                        Date
+                    </span>
+
+                    <strong>
+                        Aug 10, 2026
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span class="order-label">
+                        Total
+                    </span>
+
+                    <strong>
+                        $24.99
+                    </strong>
+
+                </div>
+
+
+                <span class="order-status shipped">
+                    Shipped
+                </span>
+
+            </div>
+
+
+            <!-- Knock Out Collection -->
+            <div class="history-product">
+
+                <div class="history-product-image">
+
+                    <img
+                        src="../images/knock-out.png"
+                        alt="Pokemon 30th Celebration Knock Out Collection"
+                    >
+
+                </div>
+
+
+                <div class="history-product-info">
+
+                    <h3>
+                        30th Celebration Knock Out Collection
+                    </h3>
+
+                    <p>
+                        Pokémon TCG
+                    </p>
+
+                    <p>
+                        Condition: New
+                    </p>
+
+                </div>
+
+
+                <strong class="history-product-price">
+                    $24.99
+                </strong>
+
+            </div>
+
+        </article>
 
     </main>
 
 
-    <!-- FOOTER -->
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
     <footer>
 
-        <h3>PokeVerse</h3>
+        <h3>
+            PokeVerse
+        </h3>
 
-        <p>Buy. Sell. Collect.</p>
+        <p>
+            Buy. Sell. Collect.
+        </p>
 
-        <p>CSC 340 Software Engineering Project</p>
+        <p>
+            CSC 340 Software Engineering Project
+        </p>
 
     </footer>
 

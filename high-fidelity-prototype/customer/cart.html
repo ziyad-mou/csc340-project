@@ -7,14 +7,17 @@
 
     <title>Your Cart | PokeVerse</title>
 
+    <link rel="icon" type="image/png" href="../images/poke.png">
+
     <link rel="stylesheet" href="../css/base.css">
     <link rel="stylesheet" href="../css/customer.css">
-    <link rel="icon" type="image/png" href="../images/poke.png">
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
+    <!-- =========================
+         NAVBAR
+    ========================== -->
     <header class="navbar">
 
         <a href="../index.html" class="logo">
@@ -37,161 +40,392 @@
     </header>
 
 
-    <!-- CART PAGE -->
-    <main class="cart-page">
+    <!-- =========================
+         CART HEADER
+    ========================== -->
+    <section class="cart-page-header">
 
-        <section class="cart-header">
+        <p class="section-label">
+            YOUR POKEVERSE CART
+        </p>
 
-            <p class="cart-eyebrow">
-                YOUR POKEVERSE CART
-            </p>
+        <h1>Your Cart</h1>
 
-            <h1>Your Cart</h1>
+        <p>
+            Review the Pokémon products you want before checking out.
+        </p>
 
-            <p>
-                Review the Pokémon cards you want before checking out.
-            </p>
+    </section>
+
+
+    <!-- =========================
+         CART
+    ========================== -->
+    <main class="cart-layout">
+
+        <section class="cart-items">
+
+
+            <!-- Tech Sticker Collection -->
+            <article class="cart-item">
+
+                <div class="cart-item-image">
+
+                    <img
+                        src="../images/tech-sticker.png"
+                        alt="Pokemon 30th Celebration Tech Sticker Collection"
+                    >
+
+                </div>
+
+                <div class="cart-item-info">
+
+                    <h2>
+                        30th Celebration Tech Sticker Collection
+                    </h2>
+
+                    <p>
+                        Pokémon TCG
+                    </p>
+
+                    <p>
+                        Condition: New
+                    </p>
+
+                    <button class="remove-item-btn">
+                        Remove
+                    </button>
+
+                </div>
+
+                <div class="cart-quantity">
+
+                    <label for="tech-quantity">
+                        Qty
+                    </label>
+
+                    <select id="tech-quantity">
+
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+
+                    </select>
+
+                </div>
+
+                <p class="cart-item-price">
+                    $34.99
+                </p>
+
+            </article>
+
+
+            <!-- Celebration Ex Box -->
+            <article class="cart-item">
+
+                <div class="cart-item-image">
+
+                    <img
+                        src="../images/ex-box.png"
+                        alt="Pokemon 30th Celebration Ex Box"
+                    >
+
+                </div>
+
+                <div class="cart-item-info">
+
+                    <h2>
+                        30th Celebration Ex Box
+                    </h2>
+
+                    <p>
+                        Pokémon TCG
+                    </p>
+
+                    <p>
+                        Condition: New
+                    </p>
+
+                    <button class="remove-item-btn">
+                        Remove
+                    </button>
+
+                </div>
+
+                <div class="cart-quantity">
+
+                    <label for="ex-quantity">
+                        Qty
+                    </label>
+
+                    <select id="ex-quantity">
+
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+
+                    </select>
+
+                </div>
+
+                <p class="cart-item-price">
+                    $49.99
+                </p>
+
+            </article>
+
+
+            <!-- Poster Collection -->
+            <article class="cart-item">
+
+                <div class="cart-item-image">
+
+                    <img
+                        src="../images/poster-collection.png"
+                        alt="Pokemon 30th Celebration Poster Collection Box"
+                    >
+
+                </div>
+
+                <div class="cart-item-info">
+
+                    <h2>
+                        30th Celebration Poster Collection Box
+                    </h2>
+
+                    <p>
+                        Pokémon TCG
+                    </p>
+
+                    <p>
+                        Condition: New
+                    </p>
+
+                    <button class="remove-item-btn">
+                        Remove
+                    </button>
+
+                </div>
+
+                <div class="cart-quantity">
+
+                    <label for="poster-quantity">
+                        Qty
+                    </label>
+
+                    <select id="poster-quantity">
+
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+
+                    </select>
+
+                </div>
+
+                <p class="cart-item-price">
+                    $39.99
+                </p>
+
+            </article>
+
+
+            <!-- Knock Out Collection -->
+            <article class="cart-item">
+
+                <div class="cart-item-image">
+
+                    <img
+                        src="../images/knock-out.png"
+                        alt="Pokemon 30th Celebration Knock Out Collection"
+                    >
+
+                </div>
+
+                <div class="cart-item-info">
+
+                    <h2>
+                        30th Celebration Knock Out Collection
+                    </h2>
+
+                    <p>
+                        Pokémon TCG
+                    </p>
+
+                    <p>
+                        Condition: New
+                    </p>
+
+                    <button class="remove-item-btn">
+                        Remove
+                    </button>
+
+                </div>
+
+                <div class="cart-quantity">
+
+                    <label for="knockout-quantity">
+                        Qty
+                    </label>
+
+                    <select id="knockout-quantity">
+
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+
+                    </select>
+
+                </div>
+
+                <p class="cart-item-price">
+                    $24.99
+                </p>
+
+            </article>
+
+
+            <!-- Elite Trainer Box -->
+            <article class="cart-item">
+
+                <div class="cart-item-image">
+
+                    <img
+                        src="../images/elite.png"
+                        alt="Pokemon 30th Celebration Elite Trainer Box"
+                    >
+
+                </div>
+
+                <div class="cart-item-info">
+
+                    <h2>
+                        30th Celebration Elite Trainer Box
+                    </h2>
+
+                    <p>
+                        Pokémon TCG
+                    </p>
+
+                    <p>
+                        Condition: New
+                    </p>
+
+                    <button class="remove-item-btn">
+                        Remove
+                    </button>
+
+                </div>
+
+                <div class="cart-quantity">
+
+                    <label for="elite-quantity">
+                        Qty
+                    </label>
+
+                    <select id="elite-quantity">
+
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+
+                    </select>
+
+                </div>
+
+                <p class="cart-item-price">
+                    $99.99
+                </p>
+
+            </article>
 
         </section>
 
 
-        <section class="cart-layout">
+        <!-- =========================
+             ORDER SUMMARY
+        ========================== -->
+        <aside class="order-summary">
 
-            <!-- CART ITEMS -->
-            <div class="cart-items">
+            <h2>
+                Order Summary
+            </h2>
 
-                <article class="cart-item">
+            <div class="summary-row">
 
-                    <div class="cart-item-image">
-                        ⚡
-                    </div>
+                <span>
+                    Subtotal
+                </span>
 
-                    <div class="cart-item-info">
-
-                        <h2>Pikachu</h2>
-
-                        <p>151 Collection</p>
-
-                        <span>Near Mint</span>
-
-                    </div>
-
-                    <div class="cart-item-quantity">
-
-                        <label for="pikachu-qty">
-                            Quantity
-                        </label>
-
-                        <select id="pikachu-qty">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                        </select>
-
-                    </div>
-
-                    <div class="cart-item-price">
-                        $39.99
-                    </div>
-
-                    <button class="remove-item" type="button">
-                        Remove
-                    </button>
-
-                </article>
-
-
-                <article class="cart-item">
-
-                    <div class="cart-item-image">
-                        🔥
-                    </div>
-
-                    <div class="cart-item-info">
-
-                        <h2>Charizard</h2>
-
-                        <p>Scarlet & Violet</p>
-
-                        <span>Near Mint</span>
-
-                    </div>
-
-                    <div class="cart-item-quantity">
-
-                        <label for="charizard-qty">
-                            Quantity
-                        </label>
-
-                        <select id="charizard-qty">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                        </select>
-
-                    </div>
-
-                    <div class="cart-item-price">
-                        $89.99
-                    </div>
-
-                    <button class="remove-item" type="button">
-                        Remove
-                    </button>
-
-                </article>
+                <span>
+                    $249.95
+                </span>
 
             </div>
 
+            <div class="summary-row">
 
-            <!-- ORDER SUMMARY -->
-            <aside class="order-summary">
+                <span>
+                    Shipping
+                </span>
 
-                <h2>Order Summary</h2>
+                <span>
+                    $5.00
+                </span>
 
-                <div class="summary-row">
-                    <span>Subtotal</span>
-                    <strong>$129.98</strong>
-                </div>
+            </div>
 
-                <div class="summary-row">
-                    <span>Shipping</span>
-                    <strong>$5.00</strong>
-                </div>
+            <div class="summary-row">
 
-                <div class="summary-row">
-                    <span>Tax</span>
-                    <strong>$9.10</strong>
-                </div>
+                <span>
+                    Tax
+                </span>
 
-                <div class="summary-total">
-                    <span>Total</span>
-                    <strong>$144.08</strong>
-                </div>
+                <span>
+                    $17.50
+                </span>
 
-                <button type="button" class="checkout-btn">
-                    Proceed to Checkout
-                </button>
+            </div>
 
-                <a href="search.html" class="continue-shopping">
-                    ← Continue Shopping
-                </a>
+            <div class="summary-row summary-total">
 
-            </aside>
+                <strong>
+                    Total
+                </strong>
 
-        </section>
+                <strong>
+                    $272.45
+                </strong>
+
+            </div>
+
+            <button class="checkout-btn">
+                Proceed to Checkout
+            </button>
+
+            <a href="search.html" class="continue-shopping">
+                Continue Shopping
+            </a>
+
+        </aside>
 
     </main>
 
 
-    <!-- FOOTER -->
-    <footer>
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer class="footer">
 
-        <h3>PokeVerse</h3>
+        <div>
+            <strong>PokeVerse</strong>
+            <p>Buy. Sell. Collect.</p>
+        </div>
 
-        <p>Buy. Sell. Collect.</p>
-
-        <p>CSC 340 Software Engineering Project</p>
+        <p>
+            CSC 340 Software Engineering Project
+        </p>
 
     </footer>
 
