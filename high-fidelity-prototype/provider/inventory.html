@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manage inventory | PokeVerse</title>
+    <link rel="icon" href="../images/poke.png" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/provider.css" />
+    <script defer src="provider.js"></script>
+  </head>
+  <body data-page="inventory">
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="navbar">
+      <a class="logo" href="../index.html"
+        ><img src="../images/PokeVerse-logo.png" alt="PokeVerse home" /></a
+      ><span class="seller-label">SELLER CENTER</span
+      ><a class="login-btn" href="../customer/index.html">Buyer view</a>
+    </header>
+    <nav class="seller-nav" aria-label="Seller navigation">
+      <a href="index.html">Dashboard</a
+      ><a href="inventory.html" aria-current="page">Inventory</a
+      ><a href="create-listing.html">New Listing</a
+      ><a href="statistics.html">Sales</a><a href="reviews.html">Reviews</a
+      ><a href="profile.html">Profile</a>
+    </nav>
+    <main class="seller-main" id="content">
+      <div class="page-heading">
+        <p class="eyebrow">POKEVERSE / SELLER CENTER</p>
+        <h1>Manage inventory</h1>
+        <p>Search your products, update availability, or edit a listing.</p>
+      </div>
+      <p class="demo-note">
+        Prototype demo · Sample products and sales · Changes stay in this
+        browser
+      </p>
+      <p id="notice" role="status" hidden></p>
+      <noscript
+        ><p>
+          Enable JavaScript to try the seller forms and interactive demo.
+        </p></noscript
+      >
+      <div class="toolbar">
+        <label
+          >Search listings<input
+            id="search"
+            type="search"
+            placeholder="Search by product name" /></label
+        ><label
+          >Availability<select id="stock-filter">
+            <option value="all">All products</option>
+            <option value="available">In stock</option>
+            <option value="low">Low stock (1–5)</option>
+            <option value="out">Out of stock</option>
+          </select></label
+        ><a class="button" href="create-listing.html">+ New listing</a>
+      </div>
+      <section class="panel">
+        <div class="table-wrap">
+          <table>
+            <caption class="sr-only">
+              Seller inventory
+            </caption>
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="inventory-rows"></tbody>
+          </table>
+        </div>
+        <p id="inventory-empty" hidden>
+          No listings match your search. Try another name or create a listing.
+        </p>
+      </section>
+    </main>
+    <footer>
+      <h3>PokeVerse</h3>
+      <p>Buy. Sell. Collect.</p>
+      <p>CSC 340 Software Engineering Project</p>
+    </footer>
+  </body>
+</html>
