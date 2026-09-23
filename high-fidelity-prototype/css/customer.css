@@ -1634,3 +1634,8 @@
         gap: 10px;
     }
 }
+/* Active customer navigation link */
+.navbar nav a[aria-current="page"] {
+    color: #e63946;
+    font-weight: 700;
+}
