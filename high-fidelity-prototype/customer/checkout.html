@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Checkout | PokeVerse</title>
+
+    <link rel="icon" type="image/png" href="../images/poke.png">
+
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/customer.css">
+    <link rel="stylesheet" href="../css/checkout.css">
+</head>
+
+<body>
+
+    <!-- ============================= -->
+    <!-- NAVBAR -->
+    <!-- ============================= -->
+
+    <header class="navbar">
+
+        <a href="../index.html" class="logo">
+            <img src="../images/PokeVerse-logo.png" alt="PokeVerse Logo">
+        </a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="search.html">Shop Cards</a>
+            <a href="cart.html">Cart</a>
+            <a href="history.html">Orders</a>
+            <a href="tutorial.html">Tutorial</a>
+        </nav>
+
+        <div class="nav-buttons">
+
+            <a href="../login.html" class="login-btn">
+                Login
+            </a>
+
+            <a href="../register.html" class="signup-btn">
+                Sign Up
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ============================= -->
+    <!-- PAGE HEADER -->
+    <!-- ============================= -->
+
+    <section class="checkout-header">
+
+        <p class="checkout-label">
+            SECURE CHECKOUT
+        </p>
+
+        <h1>
+            Checkout
+        </h1>
+
+        <p class="checkout-description">
+            Enter your shipping, billing, and payment information
+            to complete your order.
+        </p>
+
+    </section>
+
+
+    <!-- ============================= -->
+    <!-- CHECKOUT -->
+    <!-- ============================= -->
+
+    <main class="checkout-container">
+
+
+        <!-- ============================= -->
+        <!-- LEFT SIDE -->
+        <!-- ============================= -->
+
+        <form class="checkout-form" id="checkout-form">
+
+
+            <!-- CONTACT INFORMATION -->
+
+            <section class="checkout-card">
+
+                <div class="checkout-card-title">
+
+                    <span class="step-number">
+                        1
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            Contact Information
+                        </h2>
+
+                        <p>
+                            We'll send your order confirmation here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-field full-width">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input type="email" id="email" placeholder="@example.com" required>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- SHIPPING ADDRESS -->
+
+            <section class="checkout-card">
+
+                <div class="checkout-card-title">
+
+                    <span class="step-number">
+                        2
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            Shipping Address
+                        </h2>
+
+                        <p>
+                            Where should we send your Pokémon products?
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-grid">
+
+                    <div class="form-field">
+
+                        <label for="shipping-first-name">
+                            First Name
+                        </label>
+
+                        <input type="text" id="shipping-first-name" placeholder="First name" required>
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="shipping-last-name">
+                            Last Name
+                        </label>
+
+                        <input type="text" id="shipping-last-name" placeholder="Last name" required>
+
+                    </div>
+
+
+                    <div class="form-field full-width">
+
+                        <label for="shipping-address">
+                            Street Address
+                        </label>
+
+                        <input type="text" id="shipping-address" placeholder="123 Main Street" required>
+
+                    </div>
+
+
+                    <div class="form-field full-width">
+
+                        <label for="shipping-address2">
+                            Apartment, Suite, etc.
+                        </label>
+
+                        <input type="text" id="shipping-address2" placeholder="Apartment or suite (optional)">
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="shipping-city">
+                            City
+                        </label>
+
+                        <input type="text" id="shipping-city" placeholder="" required>
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="shipping-state">
+                            State
+                        </label>
+
+                        <select id="shipping-state" required>
+
+                            <option value="">
+                                Select State
+                            </option>
+
+                            <option value="NC">North Carolina</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="VA">Virginia</option>
+                            <option value="GA">Georgia</option>
+                            <option value="FL">Florida</option>
+                            <option value="NY">New York</option>
+                            <option value="CA">California</option>
+                            <option value="TX">Texas</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="shipping-zip">
+                            ZIP Code
+                        </label>
+
+                        <input type="text" id="shipping-zip" placeholder="" required>
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="shipping-country">
+                            Country
+                        </label>
+
+                        <select id="shipping-country" required>
+
+                            <option value="USA">
+                                United States
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- BILLING ADDRESS -->
+
+            <section class="checkout-card">
+
+                <div class="checkout-card-title">
+
+                    <span class="step-number">
+                        3
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            Billing Address
+                        </h2>
+
+                        <p>
+                            Enter the billing address connected to your payment method.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <label class="same-address">
+
+                    <input type="checkbox" id="same-address" checked>
+
+                    Billing address is the same as shipping address
+
+                </label>
+
+
+                <div class="form-grid" id="billing-fields">
+
+
+                    <div class="form-field">
+
+                        <label for="billing-first-name">
+                            First Name
+                        </label>
+
+                        <input type="text" id="billing-first-name" placeholder="First name">
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="billing-last-name">
+                            Last Name
+                        </label>
+
+                        <input type="text" id="billing-last-name" placeholder="Last name">
+
+                    </div>
+
+
+                    <div class="form-field full-width">
+
+                        <label for="billing-address">
+                            Street Address
+                        </label>
+
+                        <input type="text" id="billing-address" placeholder="123 Main Street">
+
+                    </div>
+
+
+                    <div class="form-field full-width">
+
+                        <label for="billing-address2">
+                            Apartment, Suite, etc.
+                        </label>
+
+                        <input type="text" id="billing-address2" placeholder="Apartment or suite (optional)">
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="billing-city">
+                            City
+                        </label>
+
+                        <input type="text" id="billing-city" placeholder="Greensboro">
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="billing-state">
+                            State
+                        </label>
+
+                        <select id="billing-state">
+
+                            <option value="">
+                                Select State
+                            </option>
+
+                            <option value="NC">North Carolina</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="VA">Virginia</option>
+                            <option value="GA">Georgia</option>
+                            <option value="FL">Florida</option>
+                            <option value="NY">New York</option>
+                            <option value="CA">California</option>
+                            <option value="TX">Texas</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="billing-zip">
+                            ZIP Code
+                        </label>
+
+                        <input type="text" id="billing-zip" placeholder="27401">
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="billing-country">
+                            Country
+                        </label>
+
+                        <select id="billing-country">
+
+                            <option value="USA">
+                                United States
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- PAYMENT -->
+
+            <section class="checkout-card">
+
+                <div class="checkout-card-title">
+
+                    <span class="step-number">
+                        4
+                    </span>
+
+                    <div>
+
+                        <h2>
+                            Payment Information
+                        </h2>
+
+                        <p>
+                            Enter your credit or debit card information.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+
+
+                <div class="form-grid">
+
+
+                    <div class="form-field full-width">
+
+                        <label for="card-name">
+                            Name on Card
+                        </label>
+
+                        <input type="text" id="card-name" placeholder="Name as shown on card" required>
+
+                    </div>
+
+
+                    <div class="form-field full-width">
+
+                        <label for="card-number">
+                            Card Number
+                        </label>
+
+                        <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19" required>
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="expiration">
+                            Expiration Date
+                        </label>
+
+                        <input type="text" id="expiration" placeholder="MM/YY" maxlength="5" required>
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="cvv">
+                            CVV
+                        </label>
+
+                        <input type="password" id="cvv" placeholder="123" maxlength="4" required>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+        </form>
+
+
+
+        <!-- ============================= -->
+        <!-- ORDER SUMMARY -->
+        <!-- ============================= -->
+
+        <aside class="checkout-summary">
+
+            <h2>
+                Order Summary
+            </h2>
+
+
+            <div class="summary-product">
+
+                <div>
+
+                    <strong>
+                        Pokémon TCG Products
+                    </strong>
+
+                    <p>
+                        5 items
+                    </p>
+
+                </div>
+
+                <strong>
+                    $249.95
+                </strong>
+
+            </div>
+
+
+            <div class="summary-line">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <span>
+                    $249.95
+                </span>
+
+            </div>
+
+
+            <div class="summary-line">
+
+                <span>
+                    Shipping
+                </span>
+
+                <span>
+                    $5.00
+                </span>
+
+            </div>
+
+
+            <div class="summary-line">
+
+                <span>
+                    Tax
+                </span>
+
+                <span>
+                    $17.50
+                </span>
+
+            </div>
+
+
+            <div class="summary-line summary-total">
+
+                <strong>
+                    Total
+                </strong>
+
+                <strong>
+                    $272.45
+                </strong>
+
+            </div>
+
+
+            <button type="submit" form="checkout-form" class="place-order-btn">
+
+                Place Order
+
+            </button>
+
+
+            <a href="cart.html" class="return-cart">
+
+                ← Return to Cart
+
+            </a>
+
+
+        
+        </aside>
+
+
+    </main>
+
+
+
+    <!-- ============================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ============================= -->
+
+    <script>
+
+        const sameAddress =
+            document.getElementById("same-address");
+
+        const billingFields =
+            document.getElementById("billing-fields");
+
+
+        function updateBillingAddress() {
+
+            if (sameAddress.checked) {
+
+                billingFields.style.display = "none";
+
+            }
+
+            else {
+
+                billingFields.style.display = "grid";
+
+            }
+
+        }
+
+
+        sameAddress.addEventListener(
+            "change",
+            updateBillingAddress
+        );
+
+
+        updateBillingAddress();
+
+
+
+        // CARD NUMBER FORMATTING
+
+        const cardNumber =
+            document.getElementById("card-number");
+
+
+        cardNumber.addEventListener(
+            "input",
+            function () {
+
+                let number =
+                    cardNumber.value.replace(/\D/g, "");
+
+                number =
+                    number.substring(0, 16);
+
+                cardNumber.value =
+                    number.replace(
+                        /(\d{4})(?=\d)/g,
+                        "$1 "
+                    );
+
+            }
+        );
+
+
+
+        // EXPIRATION DATE FORMATTING
+
+        const expiration =
+            document.getElementById("expiration");
+
+
+        expiration.addEventListener(
+            "input",
+            function () {
+
+                let value =
+                    expiration.value.replace(/\D/g, "");
+
+                value =
+                    value.substring(0, 4);
+
+
+                if (value.length > 2) {
+
+                    value =
+                        value.substring(0, 2)
+                        +
+                        "/"
+                        +
+                        value.substring(2);
+
+                }
+
+
+                expiration.value = value;
+
+            }
+        );
+
+
+
+        // PLACE ORDER
+
+        const checkoutForm =
+            document.getElementById("checkout-form");
+
+
+        checkoutForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                alert(
+                    "Order placed successfully!"
+                );
+
+
+                window.location.href =
+                    "history.html";
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

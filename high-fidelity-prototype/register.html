@@ -50,9 +50,10 @@
             </p>
 
 
-            <form class="auth-form">
+            <form class="auth-form" id="register-form">
 
                 <div class="form-group">
+
                     <label for="name">
                         Full Name
                     </label>
@@ -61,11 +62,14 @@
                         type="text"
                         id="name"
                         placeholder="Enter your full name"
+                        required
                     >
+
                 </div>
 
 
                 <div class="form-group">
+
                     <label for="email">
                         Email
                     </label>
@@ -74,11 +78,14 @@
                         type="email"
                         id="email"
                         placeholder="Enter your email"
+                        required
                     >
+
                 </div>
 
 
                 <div class="form-group">
+
                     <label for="password">
                         Password
                     </label>
@@ -87,11 +94,14 @@
                         type="password"
                         id="password"
                         placeholder="Create a password"
+                        required
                     >
+
                 </div>
 
 
                 <div class="form-group">
+
                     <label for="confirm-password">
                         Confirm Password
                     </label>
@@ -100,7 +110,9 @@
                         type="password"
                         id="confirm-password"
                         placeholder="Confirm your password"
+                        required
                     >
+
                 </div>
 
 
@@ -112,7 +124,10 @@
 
                     <div class="role-choice">
 
+
+                        <!-- CUSTOMER -->
                         <label class="role-choice-card">
+
                             <input
                                 type="radio"
                                 name="role"
@@ -121,13 +136,21 @@
                             >
 
                             <span>
-                                <strong>Customer</strong>
+
+                                <strong>
+                                    Buyer
+                                </strong>
+
                                 Buy and collect Pokémon cards
+
                             </span>
+
                         </label>
 
 
+                        <!-- PROVIDER -->
                         <label class="role-choice-card">
+
                             <input
                                 type="radio"
                                 name="role"
@@ -135,17 +158,28 @@
                             >
 
                             <span>
-                                <strong>Provider</strong>
+
+                                <strong>
+                                    Seller
+                                </strong>
+
                                 List and sell Pokémon cards
+
                             </span>
+
                         </label>
+
 
                     </div>
 
                 </div>
 
 
-                <button type="button" class="auth-submit">
+                <!-- CREATE ACCOUNT -->
+                <button
+                    type="submit"
+                    class="auth-submit"
+                >
                     Create Account
                 </button>
 
@@ -153,8 +187,13 @@
 
 
             <p class="auth-switch">
+
                 Already have an account?
-                <a href="login.html">Login</a>
+
+                <a href="login.html">
+                    Login
+                </a>
+
             </p>
 
         </section>
@@ -162,15 +201,88 @@
     </main>
 
 
+    <!-- FOOTER -->
     <footer>
 
         <h3>PokeVerse</h3>
 
-        <p>Buy. Sell. Collect.</p>
+        <p>
+            Buy. Sell. Collect.
+        </p>
 
-        <p>CSC 340 Software Engineering Project</p>
+        <p>
+            CSC 340 Software Engineering Project
+        </p>
 
     </footer>
+
+
+    <!-- REGISTER REDIRECT -->
+    <script>
+
+        const registerForm =
+            document.getElementById("register-form");
+
+
+        registerForm.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                /* GET PASSWORDS */
+
+                const password =
+                    document.getElementById("password").value;
+
+                const confirmPassword =
+                    document.getElementById("confirm-password").value;
+
+
+                /* CHECK PASSWORDS */
+
+                if (password !== confirmPassword) {
+
+                    alert("Passwords do not match.");
+
+                    return;
+
+                }
+
+
+                /* GET SELECTED ROLE */
+
+                const selectedRole =
+                    document.querySelector(
+                        'input[name="role"]:checked'
+                    );
+
+
+                /* CUSTOMER */
+
+                if (selectedRole.value === "customer") {
+
+                    window.location.href =
+                        "customer/index.html";
+
+                }
+
+
+                /* PROVIDER */
+
+                else if (selectedRole.value === "provider") {
+
+                    window.location.href =
+                        "provider/index.html";
+
+                }
+
+            }
+        );
+
+    </script>
+
 
 </body>
 
