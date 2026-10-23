@@ -101,7 +101,8 @@ Provider:
 - Review replies
 
 
-## Customer Card Browsing & Search API (Issue #14)
+
+## Customer Orders & Purchase History API (Issue #15)
 
 Developer: Ziyad
 
@@ -109,29 +110,39 @@ Developer: Ziyad
 
 | Method | Endpoint | Description |
 |---|---|---|
-| GET | /api/cards | Browse all Pokémon card listings |
-| GET | /api/cards?search=Pikachu | Search cards by name |
+| POST | /api/orders | Place a customer order |
+| GET | /api/orders/customer/{customerId} | View purchase history |
+| GET | /api/orders/{orderId} | View an individual order |
 
 ### Features
-- Retrieve card listings from Neon PostgreSQL.
-- Search cards by name (case-insensitive).
-- Return card details in JSON format.
-- Share the CardListing entity with the Provider API.
 
-### Java Classes
-- CardListing.java — Shared database entity
-- CardListingRepository.java — Database access
-- CardBrowseService.java — Browsing and search logic
-- CardBrowseController.java — REST API endpoints
+- Create customer orders containing multiple cards.
+- Verify customer and card IDs.
+- Validate requested quantities.
+- Check available stock before completing an order.
+- Calculate order totals.
+- Reduce stock after a successful purchase.
+- Save orders and order items in Neon PostgreSQL.
+- Retrieve previous customer orders.
+
+### Database Entities
+
+- Order.java — Order details and total
+- OrderItem.java — Purchased card details
+
+### HTTP Status Codes
+
+- 201 — Order placed
+- 200 — Order retrieved
+- 400 — Invalid order request
+- 404 — Customer, card, or order not found
+- 409 — Insufficient stock
 
 ### Testing
-- GET /api/cards — 200 OK
-- GET /api/cards?search=Pikachu — 200 OK
-- Neon PostgreSQL persistence — Verified
 
-### Team Integration
-The CardListing entity and repository are shared
-between Customer and Provider APIs.
+Test using curl and Neon SQL Editor.
 
-Anuraj will use these classes for managing
-seller card listings.
+Development database: customer-dev
+
+Note: Authentication and real payment processing
+are not implemented in this milestone.
