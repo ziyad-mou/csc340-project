@@ -1,12 +1,6 @@
-
 package com.pokeverse.pokeverse.service;
 
 import java.util.List;
-
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.server.ResponseStatusException;
 
 import com.pokeverse.pokeverse.dto.CreateReviewRequest;
 import com.pokeverse.pokeverse.dto.ReviewResponse;
@@ -17,6 +11,10 @@ import com.pokeverse.pokeverse.entity.Review;
 import com.pokeverse.pokeverse.repository.CardListingRepository;
 import com.pokeverse.pokeverse.repository.CustomerRepository;
 import com.pokeverse.pokeverse.repository.ReviewRepository;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 @Service
 public class ReviewService {
@@ -35,14 +33,8 @@ public class ReviewService {
         this.cardListingRepository = cardListingRepository;
     }
 
-    // =====================================
-    // CREATE A REVIEW
-    // =====================================
-
     @Transactional
-    public ReviewResponse createReview(
-            CreateReviewRequest request) {
-
+    public ReviewResponse createReview(CreateReviewRequest request) {
         Customer customer = customerRepository
                 .findById(request.customerId())
                 .orElseThrow(() -> new ResponseStatusException(
@@ -58,20 +50,13 @@ public class ReviewService {
                 ));
 
         Review review = new Review();
-
         review.setCustomer(customer);
         review.setCardListing(card);
         review.setRating(request.rating());
         review.setComment(request.comment());
 
-        Review savedReview = reviewRepository.save(review);
-
-        return ReviewResponse.from(savedReview);
+        return ReviewResponse.from(reviewRepository.save(review));
     }
-
-    // =====================================
-    // UPDATE A REVIEW
-    // =====================================
 
     @Transactional
     public ReviewResponse updateReview(
@@ -79,7 +64,7 @@ public class ReviewService {
             UpdateReviewRequest request) {
 
         Review review = reviewRepository
-                .findById(reviewId)
+                .findByIdForUpdate(reviewId)
                 .orElseThrow(() -> new ResponseStatusException(
                         HttpStatus.NOT_FOUND,
                         "Review not found"
@@ -97,18 +82,11 @@ public class ReviewService {
         review.setRating(request.rating());
         review.setComment(request.comment());
 
-        Review updatedReview = reviewRepository.save(review);
-
-        return ReviewResponse.from(updatedReview);
+        return ReviewResponse.from(reviewRepository.save(review));
     }
-
-    // =====================================
-    // GET ONE REVIEW
-    // =====================================
 
     @Transactional(readOnly = true)
     public ReviewResponse getReview(Long reviewId) {
-
         Review review = reviewRepository
                 .findById(reviewId)
                 .orElseThrow(() -> new ResponseStatusException(
@@ -119,14 +97,8 @@ public class ReviewService {
         return ReviewResponse.from(review);
     }
 
-    // =====================================
-    // GET REVIEWS FOR A CARD
-    // =====================================
-
     @Transactional(readOnly = true)
-    public List<ReviewResponse> getCardReviews(
-            Long cardListingId) {
-
+    public List<ReviewResponse> getCardReviews(Long cardListingId) {
         if (!cardListingRepository.existsById(cardListingId)) {
             throw new ResponseStatusException(
                     HttpStatus.NOT_FOUND,
@@ -141,14 +113,8 @@ public class ReviewService {
                 .toList();
     }
 
-    // =====================================
-    // GET REVIEWS BY A CUSTOMER
-    // =====================================
-
     @Transactional(readOnly = true)
-    public List<ReviewResponse> getCustomerReviews(
-            Long customerId) {
-
+    public List<ReviewResponse> getCustomerReviews(Long customerId) {
         if (!customerRepository.existsById(customerId)) {
             throw new ResponseStatusException(
                     HttpStatus.NOT_FOUND,
