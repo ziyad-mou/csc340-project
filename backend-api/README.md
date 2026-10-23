@@ -99,3 +99,39 @@ Provider:
 - Inventory management
 - Sales statistics
 - Review replies
+
+
+## Customer Card Browsing & Search API (Issue #14)
+
+Developer: Ziyad
+
+### API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | /api/cards | Browse all Pokémon card listings |
+| GET | /api/cards?search=Pikachu | Search cards by name |
+
+### Features
+- Retrieve card listings from Neon PostgreSQL.
+- Search cards by name (case-insensitive).
+- Return card details in JSON format.
+- Share the CardListing entity with the Provider API.
+
+### Java Classes
+- CardListing.java — Shared database entity
+- CardListingRepository.java — Database access
+- CardBrowseService.java — Browsing and search logic
+- CardBrowseController.java — REST API endpoints
+
+### Testing
+- GET /api/cards — 200 OK
+- GET /api/cards?search=Pikachu — 200 OK
+- Neon PostgreSQL persistence — Verified
+
+### Team Integration
+The CardListing entity and repository are shared
+between Customer and Provider APIs.
+
+Anuraj will use these classes for managing
+seller card listings.
