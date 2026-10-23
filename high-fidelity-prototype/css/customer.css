@@ -1643,3 +1643,406 @@
     color: #e63946;
     font-weight: 700;
 }
+
+
+/* =====================================================
+   CUSTOMER REVIEWS PAGE
+   ===================================================== */
+
+   .reviews-page-header {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 55px 30px 25px;
+}
+
+.reviews-page-header .section-label,
+.customer-reviews-container .section-label {
+    color: #e63946;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+}
+
+.reviews-page-header h1 {
+    margin: 10px 0;
+    color: #111827;
+    font-size: 40px;
+}
+
+.reviews-page-header > p:last-child {
+    color: #6b7280;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+main.customer-reviews-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 25px 30px 80px;
+    text-align: left;
+}
+
+
+/* INTRODUCTION */
+
+.reviews-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+.reviews-intro h2 {
+    color: #111827;
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.reviews-intro p:not(.section-label) {
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+.review-action-btn,
+.review-submit-btn {
+    display: inline-block;
+    background: #e63946;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+}
+
+.review-action-btn:hover {
+    background: #c92f3b;
+}
+
+.review-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* REVIEW CARDS */
+
+.customer-review-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    box-shadow: 0 6px 18px rgba(17,24,39,0.06);
+}
+
+.review-product-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background: #f8fafc;
+    padding: 22px 26px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.review-product-image {
+    width: 115px;
+    height: 110px;
+    flex-shrink: 0;
+}
+
+.review-product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.review-product-details h3 {
+    margin: 0 0 8px;
+    font-size: 20px;
+    color: #111827;
+}
+
+.review-product-details p {
+    margin: 0 0 10px;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.review-stars {
+    color: #f59e0b;
+    font-size: 23px;
+    letter-spacing: 2px;
+}
+
+.review-rating-text {
+    color: #6b7280;
+    font-size: 13px;
+    margin-left: 10px;
+}
+
+
+/* REVIEW CONTENT */
+
+.review-body {
+    padding: 24px 26px;
+}
+
+.review-author {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.review-author strong {
+    color: #111827;
+    font-size: 15px;
+}
+
+.review-author span {
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.review-body h4 {
+    font-size: 18px;
+    margin: 18px 0 8px;
+    color: #111827;
+}
+
+.review-body > p {
+    color: #4b5563;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.review-seller-reply {
+    margin-top: 20px;
+    padding: 18px;
+    background: #f3f4f6;
+    border-left: 4px solid #e63946;
+    border-radius: 8px;
+}
+
+.review-seller-reply strong {
+    color: #111827;
+}
+
+.review-seller-reply p {
+    color: #4b5563;
+    margin: 8px 0 0;
+    line-height: 1.6;
+}
+
+
+/* WRITE REVIEW FORM */
+
+.write-review-section {
+    margin-top: 45px;
+    background: #ffffff;
+    padding: 32px;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 6px 18px rgba(17,24,39,0.06);
+    scroll-margin-top: 120px;
+}
+
+.write-review-section h2 {
+    color: #111827;
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.write-review-section > p:not(.section-label) {
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+.customer-review-form {
+    margin-top: 25px;
+}
+
+.customer-review-form label {
+    display: block;
+    margin: 20px 0 9px;
+    color: #374151;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.customer-review-form input,
+.customer-review-form select,
+.customer-review-form textarea {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 9px;
+    font-family: inherit;
+    font-size: 15px;
+    color: #111827;
+}
+
+.customer-review-form textarea {
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.customer-review-form input:focus,
+.customer-review-form select:focus,
+.customer-review-form textarea:focus {
+    outline: 2px solid #fecdd3;
+    border-color: #e63946;
+}
+
+.review-submit-btn {
+    margin-top: 24px;
+}
+
+.review-prototype-note {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 700px) {
+
+    .reviews-page-header,
+    main.customer-reviews-container {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
+    .reviews-page-header h1 {
+        font-size: 34px;
+    }
+
+    .reviews-intro {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .review-product-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .write-review-section {
+        padding: 22px;
+    }
+}
+
+/* =====================================================
+   PURCHASE HISTORY - REVIEW BUTTONS
+   ===================================================== */
+
+   .history-product-info .review-action-btn {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 10px 18px;
+
+    background: #e63946;
+    color: #ffffff;
+
+    border-radius: 8px;
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: background 0.2s ease;
+}
+
+.history-product-info .review-action-btn:hover {
+    background: #c92f3b;
+}
+
+.history-product-info .review-unavailable {
+    margin-top: 14px;
+    color: #9ca3af;
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* =====================================================
+   BUYER REVIEWS PAGE - ADDITIONAL STYLES
+   ===================================================== */
+
+   .buyer-reviews-section {
+    margin-bottom: 45px;
+}
+
+.buyer-section-heading {
+    margin-bottom: 25px;
+}
+
+.buyer-section-heading h2 {
+    color: #111827;
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.buyer-section-heading > p:last-child {
+    color: #6b7280;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.buyer-reviews-section .order-card {
+    margin-bottom: 22px;
+}
+
+/* Keep the review action beneath product information */
+
+.buyer-reviews-section
+.history-product-info .review-action-btn {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 10px 18px;
+    background: #e63946;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.buyer-reviews-section
+.history-product-info .review-action-btn:hover {
+    background: #c92f3b;
+}
+
+/* Better spacing between review sections */
+
+.buyer-reviews-section .customer-review-card {
+    margin-top: 18px;
+}
+
+.review-edit-note {
+    margin-top: 18px !important;
+    color: #6b7280 !important;
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+
+    .buyer-section-heading h2 {
+        font-size: 24px;
+    }
+
+    .buyer-reviews-section .history-product {
+        gap: 15px;
+    }
+
+}

@@ -146,3 +146,50 @@ Development database: customer-dev
 
 Note: Authentication and real payment processing
 are not implemented in this milestone.
+
+
+## Customer Reviews API (Issue #16)
+
+Developer: Ziyad
+
+### API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | /api/reviews | Create a review |
+| PUT | /api/reviews/{reviewId} | Update a review |
+| GET | /api/reviews/{reviewId} | View one review |
+| GET | /api/reviews/card/{cardListingId} | View card reviews |
+| GET | /api/reviews/customer/{customerId} | View customer reviews |
+
+### Features
+
+- Create reviews for Pokemon card listings.
+- Rate cards from 1 to 5 stars.
+- Update review ratings and comments.
+- Retrieve reviews by card or customer.
+- Store reviews in Neon PostgreSQL.
+- Support future seller replies.
+
+### Java Classes
+
+- Review.java
+- ReviewRepository.java
+- CreateReviewRequest.java
+- UpdateReviewRequest.java
+- ReviewResponse.java
+- ReviewService.java
+- ReviewController.java
+
+### Testing
+
+- Review retrieval: 200 OK
+- Review update: 200 OK
+- Review persistence: Verified in Neon SQL Editor
+
+### Team Integration
+
+Review.java includes sellerReply and repliedAt fields
+for Anuraj's Provider Review Reply API.
+
+Authentication and authorization are not yet implemented.
