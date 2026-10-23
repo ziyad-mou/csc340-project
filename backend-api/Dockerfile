@@ -1,16 +1,18 @@
-
-# STAGE 1: BUILD THE SPRING BOOT APPLICATION
-FROM maven:3.10-eclipse-temurin-25-noble AS build
+FROM eclipse-temurin:25-jdk-noble AS build
 
 WORKDIR /app
 
-COPY pom.xml .
+COPY .mvn/ .mvn/
+COPY mvnw pom.xml ./
+
+RUN tr -d '\r' < mvnw > mvnw.lf \
+    && mv mvnw.lf mvnw \
+    && chmod +x mvnw
+
 COPY src ./src
 
-RUN mvn -B -DskipTests package
+RUN ./mvnw -B -DskipTests package
 
-
-# STAGE 2: RUN THE APPLICATION
 FROM eclipse-temurin:25-jre-noble
 
 WORKDIR /app
