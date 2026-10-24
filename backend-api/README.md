@@ -297,7 +297,7 @@ Development database: provider-dev.
 
 ### Deployment
 
-Live Render URL: PENDING_RENDER_URL
+Live Render URL: https://pokeverse-fk54.onrender.com/api/cards
 
 Root Directory: backend-api.
 Production database branch: production.
