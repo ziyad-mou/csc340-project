@@ -187,9 +187,117 @@ Developer: Ziyad
 - Review update: 200 OK
 - Review persistence: Verified in Neon SQL Editor
 
-### Team Integration
+## Provider Backend API — Issues #22–#26
 
-Review.java includes sellerReply and repliedAt fields
-for Anuraj's Provider Review Reply API.
+Developer: Anuraj Subedi
 
-Authentication and authorization are not yet implemented.
+### API Endpoints
+
+| Method | Endpoint | Description | Success |
+|---|---|---|---|
+| POST | /api/providers | Create Provider profile | 201 |
+| GET | /api/providers/{providerId} | View Provider profile | 200 |
+| PUT | /api/providers/{providerId} | Update Provider profile | 200 |
+| DELETE | /api/providers/{providerId} | Delete empty Provider profile | 204 |
+| POST | /api/providers/{providerId}/cards | Create listing | 201 |
+| GET | /api/providers/{providerId}/cards | View own listings | 200 |
+| GET | /api/providers/{providerId}/cards/{cardId} | View listing | 200 |
+| PUT | /api/providers/{providerId}/cards/{cardId} | Update listing | 200 |
+| DELETE | /api/providers/{providerId}/cards/{cardId} | Delete unused listing | 204 |
+| PUT | /api/providers/{providerId}/cards/{cardId}/inventory | Update stock | 200 |
+| GET | /api/providers/{providerId}/statistics | View sales statistics | 200 |
+| GET | /api/providers/{providerId}/reviews | View buyer reviews | 200 |
+| POST | /api/providers/{providerId}/reviews/{reviewId}/replies | Create reply | 201 |
+| PUT | /api/providers/{providerId}/reviews/{reviewId}/replies | Update reply | 200 |
+
+### Features and Use Cases
+
+- Issue #22: Create, view, update, and remove Provider profiles.
+- US-6 / Issue #23: Manage card listings.
+- US-7 / Issue #24: Update inventory.
+- US-8 / Issue #25: View sales, revenue, quantities sold, and unique customers.
+- US-9 / Issue #26: Read buyer reviews and manage seller replies.
+
+These Provider features are now implemented.
+
+### Example Request Bodies
+
+POST /api/providers:
+
+```json
+{
+  "storeName": "Anuraj PokeVerse Store",
+  "email": "anuraj@example.com",
+  "password": "DemoPassword123!",
+  "biography": "Pokemon pack seller."
+}
+```
+
+PUT /api/providers/{providerId}:
+
+```json
+{
+  "storeName": "Anuraj Sealed Packs",
+  "email": "anuraj@example.com",
+  "biography": "Updated seller information."
+}
+```
+
+POST /api/providers/{providerId}/cards and
+PUT /api/providers/{providerId}/cards/{cardId}:
+
+```json
+{
+  "name": "Booster Pack",
+  "description": "Factory-sealed Pokemon pack.",
+  "condition": "Sealed",
+  "price": 14.00,
+  "stock": 25,
+  "imageUrl": ""
+}
+```
+
+PUT /api/providers/{providerId}/cards/{cardId}/inventory:
+
+```json
+{
+  "stock": 30
+}
+```
+
+POST and PUT /api/providers/{providerId}/reviews/{reviewId}/replies:
+
+```json
+{
+  "sellerReply": "Thank you for your order!"
+}
+```
+
+### Shared Entities
+
+- Provider — Seller profile.
+- CardListing — Listing details and inventory.
+- Order and OrderItem — Sales statistics.
+- Review — Buyer feedback, sellerReply, and repliedAt.
+
+The Provider API reuses the existing shared entities and repositories.
+
+### Testing
+
+API client: EchoAPI.
+Development database: provider-dev.
+
+- Profile, listing, inventory, statistics, and reply operations.
+- Invalid input: 400.
+- Missing records: 404.
+- Duplicate emails/replies and protected deletions: 409.
+- Verify saved records in Neon and after application restart.
+
+### Deployment
+
+Live Render URL: PENDING_RENDER_URL
+
+Root Directory: backend-api.
+Production database branch: production.
+
+The first request after inactivity may take about one minute.
