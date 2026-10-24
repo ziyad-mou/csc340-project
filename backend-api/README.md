@@ -19,10 +19,21 @@ The backend uses Java 25, Spring Boot, Spring Data JPA, and Neon PostgreSQL. It 
 **Version:** 1.0  
 **Last Updated:** October 23, 2026
 
-**Base URL:**
 
-- Local: http://localhost:8080/api
-- Production: https://pokeverse-fk54.onrender.com/api
+**API Base URLs:**
+
+- Local: `http://localhost:8080/api`
+- Production: `https://pokeverse-fk54.onrender.com/api`
+
+These are API prefixes, not standalone endpoints.
+
+**Example Working Endpoints:**
+
+- Local Card Listings: http://localhost:8080/api/cards
+- Production Card Listings: https://pokeverse-fk54.onrender.com/api/cards
+- Production Provider Profile: https://pokeverse-fk54.onrender.com/api/providers/1
+- Production Card Reviews: https://pokeverse-fk54.onrender.com/api/reviews/card/1
+
 
 The API accepts and returns JSON data. Request bodies are validated using Jakarta Bean Validation.
 
