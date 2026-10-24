@@ -1,49 +1,73 @@
-
 # PokeVerse Backend API
 
-## Project Description
+**CSC 340 — Software Engineering**
 
-PokeVerse is an online marketplace for buying and
-selling Pokémon trading cards.
+**Team Members:**
+- Ziyad Abdelhamid — Customer Backend API
+- Anuraj Subedi — Provider Backend API
 
-The backend uses Java 25, Spring Boot, Spring Data JPA,
-and PostgreSQL hosted on Neon.
+PokeVerse is an online marketplace where customers can browse, purchase, and review Pokémon trading cards. Providers can create listings, manage inventory, track sales, and respond to customer reviews.
 
-## Team Responsibilities
+The backend uses Java 25, Spring Boot, Spring Data JPA, and Neon PostgreSQL. It is deployed to Render using Docker.
 
-- Ziyad: Customer Backend API
-- Anuraj: Provider Backend API
+# UML Class Diagram
 
-## UML Class Diagram
+![PokeVerse Class Diagram](../docs/PokeVerseClassDiagram.png)
 
-![PokeVerse UML](../docs/PokeVerseClassDiagram.png)
+# API Overview
 
-## Customer API Endpoints
+**Version:** 1.0  
+**Last Updated:** October 23, 2026
 
-| Use Case | Method | Endpoint | Success | Developer |
-|---|---|---|---|---|
-| Create Customer | POST | /api/customers | 201 | Ziyad |
-| View Profile | GET | /api/customers/{id} | 200 | Ziyad |
-| Update Profile | PUT | /api/customers/{id} | 200 | Ziyad |
+**Base URL:**
 
-## Example POST Request
+- Local: http://localhost:8080/api
+- Production: https://pokeverse-fk54.onrender.com/api
 
-Endpoint: POST /api/customers
+The API accepts and returns JSON data. Request bodies are validated using Jakarta Bean Validation.
 
-```json
+Common HTTP status codes:
+
+- `200 OK` — Successful request.
+- `201 Created` — Resource created.
+- `204 No Content` — Resource deleted.
+- `400 Bad Request` — Invalid input.
+- `403 Forbidden` — Review does not belong to the specified customer.
+- `404 Not Found` — Resource not found.
+- `409 Conflict` — Duplicate email, insufficient stock, or conflicting operation.
+
+## Customer Profiles and Card Discovery
+
+**Developer:** Ziyad Abdelhamid
+
+| Method | Path | Purpose | Response Code | Error Codes | User Story |
+|---|---|---|---|---|---|
+| `POST` | `/api/customers` | Register a customer profile | `201 Created` | `400, 409` | [US-1](../docs/PokeVerseSRS.md) |
+| `GET` | `/api/customers/{id}` | View customer profile | `200 OK` | `404` | [US-1](../docs/PokeVerseSRS.md) |
+| `PUT` | `/api/customers/{id}` | Update customer profile | `200 OK` | `400, 404, 409` | [US-1](../docs/PokeVerseSRS.md) |
+| `GET` | `/api/cards` | View all available Pokémon cards | `200 OK` | — | [US-2](../docs/PokeVerseSRS.md) |
+| `GET` | `/api/cards?search={name}` | Search cards by name | `200 OK` | — | [US-2](../docs/PokeVerseSRS.md) |
+
+### Example Customer Registration
+
+```http
+POST /api/customers
+Content-Type: application/json
+
 {
   "name": "Test Customer",
-  "email": "test@example.com",
+  "email": "customer@example.com",
   "password": "TestPassword123!",
   "shippingAddress": "Greensboro, NC"
 }
 ```
 
-## Example PUT Request
+### Example Customer Update
 
-Endpoint: PUT /api/customers/1
+```http
+PUT /api/customers/1
+Content-Type: application/json
 
-```json
 {
   "name": "Updated Customer",
   "email": "updated@example.com",
@@ -51,255 +75,415 @@ Endpoint: PUT /api/customers/1
 }
 ```
 
-## HTTP Status Codes
+Passwords are hashed using BCrypt before being stored in PostgreSQL and are excluded from Customer API responses.
 
-- 201: Customer created successfully
-- 200: Customer retrieved or updated
-- 400: Invalid request data
-- 404: Customer not found
-- 409: Email already registered
+### Example Card Search
 
-## Database
+```http
+GET /api/cards?search=Pikachu
+```
 
-The backend uses Neon PostgreSQL.
+This returns Pokémon card listings with names containing "Pikachu", ignoring capitalization.
 
-Development branches:
-- customer-dev
-- provider-dev
+Card browsing uses the shared `CardListing` entity and repository so customers can view cards created by providers.
 
-Main database branch:
-- production
+## Customer Orders and Purchase History
 
-Database credentials are configured through
-environment variables and are never committed
-to GitHub.
+**Developer:** Ziyad Abdelhamid  
+**GitHub Issue:** #15
 
-## Testing
+| Method | Path | Purpose | Response Code | Error Codes | User Story |
+|---|---|---|---|---|---|
+| `POST` | `/api/orders` | Purchase Pokémon cards | `201 Created` | `400, 404, 409` | Purchase workflow |
+| `GET` | `/api/orders/customer/{customerId}` | View customer purchase history | `200 OK` | `404` | [US-4](../docs/PokeVerseSRS.md) |
+| `GET` | `/api/orders/{orderId}` | View individual order details | `200 OK` | `404` | [US-4](../docs/PokeVerseSRS.md) |
 
-Customer Profile API tested successfully:
+### Example Order Request
 
-- POST /api/customers
-- GET /api/customers/{id}
-- PUT /api/customers/{id}
-- Invalid input (400)
-- Missing customer (404)
+```http
+POST /api/orders
+Content-Type: application/json
 
-Customer data persistence was verified in Neon.
-
-## Remaining Features
-
-Customer:
-- Browse and search card listings
-- Place orders and view purchase history
-- Write and update reviews
-
-Provider:
-- Provider profile management
-- Card listing management
-- Inventory management
-- Sales statistics
-- Review replies
-
-
-
-## Customer Orders & Purchase History API (Issue #15)
-
-Developer: Ziyad
-
-### API Endpoints
-
-| Method | Endpoint | Description |
-|---|---|---|
-| POST | /api/orders | Place a customer order |
-| GET | /api/orders/customer/{customerId} | View purchase history |
-| GET | /api/orders/{orderId} | View an individual order |
-
-### Features
-
-- Create customer orders containing multiple cards.
-- Verify customer and card IDs.
-- Validate requested quantities.
-- Check available stock before completing an order.
-- Calculate order totals.
-- Reduce stock after a successful purchase.
-- Save orders and order items in Neon PostgreSQL.
-- Retrieve previous customer orders.
-
-### Database Entities
-
-- Order.java — Order details and total
-- OrderItem.java — Purchased card details
-
-### HTTP Status Codes
-
-- 201 — Order placed
-- 200 — Order retrieved
-- 400 — Invalid order request
-- 404 — Customer, card, or order not found
-- 409 — Insufficient stock
-
-### Testing
-
-Test using curl and Neon SQL Editor.
-
-Development database: customer-dev
-
-Note: Authentication and real payment processing
-are not implemented in this milestone.
-
-
-## Customer Reviews API (Issue #16)
-
-Developer: Ziyad
-
-### API Endpoints
-
-| Method | Endpoint | Description |
-|---|---|---|
-| POST | /api/reviews | Create a review |
-| PUT | /api/reviews/{reviewId} | Update a review |
-| GET | /api/reviews/{reviewId} | View one review |
-| GET | /api/reviews/card/{cardListingId} | View card reviews |
-| GET | /api/reviews/customer/{customerId} | View customer reviews |
-
-### Features
-
-- Create reviews for Pokemon card listings.
-- Rate cards from 1 to 5 stars.
-- Update review ratings and comments.
-- Retrieve reviews by card or customer.
-- Store reviews in Neon PostgreSQL.
-- Support future seller replies.
-
-### Java Classes
-
-- Review.java
-- ReviewRepository.java
-- CreateReviewRequest.java
-- UpdateReviewRequest.java
-- ReviewResponse.java
-- ReviewService.java
-- ReviewController.java
-
-### Testing
-
-- Review retrieval: 200 OK
-- Review update: 200 OK
-- Review persistence: Verified in Neon SQL Editor
-
-## Provider Backend API — Issues #22–#26
-
-Developer: Anuraj Subedi
-
-### API Endpoints
-
-| Method | Endpoint | Description | Success |
-|---|---|---|---|
-| POST | /api/providers | Create Provider profile | 201 |
-| GET | /api/providers/{providerId} | View Provider profile | 200 |
-| PUT | /api/providers/{providerId} | Update Provider profile | 200 |
-| DELETE | /api/providers/{providerId} | Delete empty Provider profile | 204 |
-
-| POST | /api/providers/{providerId}/cards | Create listing | 201 |
-| GET | /api/providers/{providerId}/cards | View own listings | 200 |
-| GET | /api/providers/{providerId}/cards/{cardId} | View listing | 200 |
-| PUT | /api/providers/{providerId}/cards/{cardId} | Update listing | 200 |
-| DELETE | /api/providers/{providerId}/cards/{cardId} | Delete unused listing | 204 |
-
-| PUT | /api/providers/{providerId}/cards/{cardId}/inventory | Update stock | 200 |
-| GET | /api/providers/{providerId}/statistics | View sales statistics | 200 |
-| GET | /api/providers/{providerId}/reviews | View buyer reviews | 200 |
-| POST | /api/providers/{providerId}/reviews/{reviewId}/replies | Create reply | 201 |
-| PUT | /api/providers/{providerId}/reviews/{reviewId}/replies | Update reply | 200 |
-
-### Features and Use Cases
-
-- Issue #22: Create, view, update, and remove Provider profiles.
-- US-6 / Issue #23: Manage card listings.
-- US-7 / Issue #24: Update inventory.
-- US-8 / Issue #25: View sales, revenue, quantities sold, and unique customers.
-- US-9 / Issue #26: Read buyer reviews and manage seller replies.
-
-These Provider features are now implemented.
-
-### Example Request Bodies
-
-POST /api/providers:
-
-```json
 {
-  "storeName": "Anuraj PokeVerse Store",
-  "email": "anuraj@example.com",
-  "password": "DemoPassword123!",
-  "biography": "Pokemon pack seller."
+  "customerId": 1,
+  "items": [
+    {
+      "cardListingId": 1,
+      "quantity": 2
+    }
+  ]
 }
 ```
 
-PUT /api/providers/{providerId}:
+The Orders API:
 
-```json
+- Validates the Customer and CardListing IDs.
+- Checks available inventory.
+- Calculates the total purchase amount.
+- Stores Order and OrderItem records in PostgreSQL.
+- Reduces card stock after a successful purchase.
+- Supports orders containing multiple card listings.
+- Returns previous orders through the Purchase History API.
+
+Orders use database transactions and pessimistic locking to prevent concurrent purchases from overselling inventory.
+
+## Customer Reviews
+
+**Developer:** Ziyad Abdelhamid  
+**GitHub Issue:** #16
+
+| Method | Path | Purpose | Response Code | Error Codes | User Story |
+|---|---|---|---|---|---|
+| `POST` | `/api/reviews` | Create a card review | `201 Created` | `400, 404` | Review API #16 |
+| `PUT` | `/api/reviews/{reviewId}` | Update a customer review | `200 OK` | `400, 403, 404` | Review API #16 |
+| `GET` | `/api/reviews/{reviewId}` | View a review | `200 OK` | `404` | Review API #16 |
+| `GET` | `/api/reviews/card/{cardListingId}` | View reviews for a card | `200 OK` | `404` | Review API #16 |
+| `GET` | `/api/reviews/customer/{customerId}` | View reviews written by a customer | `200 OK` | `404` | Review API #16 |
+
+### Example Create Review Request
+
+```http
+POST /api/reviews
+Content-Type: application/json
+
 {
-  "storeName": "Anuraj Sealed Packs",
-  "email": "anuraj@example.com",
-  "biography": "Updated seller information."
+  "customerId": 1,
+  "cardListingId": 1,
+  "rating": 5,
+  "comment": "Excellent Pikachu card!"
 }
 ```
 
-POST /api/providers/{providerId}/cards and
-PUT /api/providers/{providerId}/cards/{cardId}:
+### Example Update Review Request
 
-```json
+```http
+PUT /api/reviews/1
+Content-Type: application/json
+
 {
-  "name": "Booster Pack",
-  "description": "Factory-sealed Pokemon pack.",
-  "condition": "Sealed",
-  "price": 14.00,
-  "stock": 25,
-  "imageUrl": ""
+  "customerId": 1,
+  "rating": 4,
+  "comment": "Great card and fast delivery!"
 }
 ```
 
-PUT /api/providers/{providerId}/cards/{cardId}/inventory:
+Review ratings must be between 1 and 5.
 
-```json
+Each review is associated with a Customer and a CardListing. Reviews are stored in PostgreSQL and may include seller replies.
+
+## Provider Profiles
+
+**Developer:** Anuraj Subedi  
+**GitHub Issue:** #22
+
+| Method | Path | Purpose | Response Code | Error Codes | User Story |
+|---|---|---|---|---|---|
+| `POST` | `/api/providers` | Register a Provider profile | `201 Created` | `400, 409` | Provider Profile #22 |
+| `GET` | `/api/providers/{providerId}` | View Provider profile | `200 OK` | `404` | Provider Profile #22 |
+| `PUT` | `/api/providers/{providerId}` | Update Provider information | `200 OK` | `400, 404, 409` | Provider Profile #22 |
+| `DELETE` | `/api/providers/{providerId}` | Delete a Provider without listings | `204 No Content` | `404, 409` | Provider Profile #22 |
+
+### Example Provider Registration
+
+```http
+POST /api/providers
+Content-Type: application/json
+
 {
-  "stock": 30
+  "storeName": "PokeVerse Test Store",
+  "email": "seller@example.com",
+  "password": "TestPassword123!",
+  "biography": "Selling Pokemon trading cards."
 }
 ```
 
-POST and PUT /api/providers/{providerId}/reviews/{reviewId}/replies:
+### Example Provider Update
 
-```json
+```http
+PUT /api/providers/1
+Content-Type: application/json
+
 {
-  "sellerReply": "Thank you for your order!"
+  "storeName": "Updated PokeVerse Store",
+  "email": "seller@example.com",
+  "biography": "Specializing in rare Pokemon cards."
 }
 ```
 
-### Shared Entities
+Provider passwords are hashed using BCrypt. Duplicate email addresses return `409 Conflict`.
 
-- Provider — Seller profile.
-- CardListing — Listing details and inventory.
-- Order and OrderItem — Sales statistics.
-- Review — Buyer feedback, sellerReply, and repliedAt.
+Providers cannot be deleted while they still own card listings.
 
-The Provider API reuses the existing shared entities and repositories.
+## Provider Card Listings and Inventory
 
-### Testing
+**Developer:** Anuraj Subedi  
+**GitHub Issues:** #23 and #24
 
-API client: EchoAPI.
-Development database: provider-dev.
+| Method | Path | Purpose | Response Code | Error Codes | User Story |
+|---|---|---|---|---|---|
+| `POST` | `/api/providers/{providerId}/cards` | Create a Pokémon card listing | `201 Created` | `400, 404` | [US-6](../docs/PokeVerseSRS.md) |
+| `GET` | `/api/providers/{providerId}/cards` | View Provider listings | `200 OK` | `404` | [US-6](../docs/PokeVerseSRS.md) |
+| `GET` | `/api/providers/{providerId}/cards/{cardId}` | View a Provider listing | `200 OK` | `404` | [US-6](../docs/PokeVerseSRS.md) |
+| `PUT` | `/api/providers/{providerId}/cards/{cardId}` | Update a card listing | `200 OK` | `400, 404` | [US-6](../docs/PokeVerseSRS.md) |
+| `DELETE` | `/api/providers/{providerId}/cards/{cardId}` | Delete an eligible listing | `204 No Content` | `404, 409` | [US-6](../docs/PokeVerseSRS.md) |
+| `PUT` | `/api/providers/{providerId}/cards/{cardId}/inventory` | Update card stock | `200 OK` | `400, 404` | [US-7](../docs/PokeVerseSRS.md) |
 
-- Profile, listing, inventory, statistics, and reply operations.
-- Invalid input: 400.
-- Missing records: 404.
-- Duplicate emails/replies and protected deletions: 409.
-- Verify saved records in Neon and after application restart.
+### Example Create Card Listing
 
-### Deployment
+```http
+POST /api/providers/1/cards
+Content-Type: application/json
 
-Live Render URL: https://pokeverse-fk54.onrender.com/api/cards
+{
+  "name": "Pikachu V",
+  "description": "Rare electric Pokemon card",
+  "condition": "Near Mint",
+  "price": 25.00,
+  "stock": 5,
+  "imageUrl": "https://example.com/pikachu.png"
+}
+```
 
-Root Directory: backend-api.
-Production database branch: production.
+### Example Update Card Listing
 
-The first request after inactivity may take about one minute.
+```http
+PUT /api/providers/1/cards/1
+Content-Type: application/json
+
+{
+  "name": "Pikachu V",
+  "description": "Pikachu card in excellent condition",
+  "condition": "Near Mint",
+  "price": 27.00,
+  "stock": 5,
+  "imageUrl": "https://example.com/pikachu.png"
+}
+```
+
+### Example Inventory Update
+
+```http
+PUT /api/providers/1/cards/1/inventory
+Content-Type: application/json
+
+{
+  "stock": 10
+}
+```
+
+Providers can create, retrieve, update, and delete card listings.
+
+The CardListing entity is shared by the Provider and Customer APIs. A listing created by a Provider can be retrieved through the Customer Card Browsing API.
+
+Deleting listings that already have orders or reviews returns `409 Conflict`.
+
+## Provider Sales Statistics and Review Replies
+
+**Developer:** Anuraj Subedi  
+**GitHub Issues:** #25 and #26
+
+| Method | Path | Purpose | Response Code | Error Codes | User Story |
+|---|---|---|---|---|---|
+| `GET` | `/api/providers/{providerId}/statistics` | View sales statistics | `200 OK` | `404` | [US-8](../docs/PokeVerseSRS.md) |
+| `GET` | `/api/providers/{providerId}/reviews` | View customer reviews | `200 OK` | `404` | [US-9](../docs/PokeVerseSRS.md) |
+| `POST` | `/api/providers/{providerId}/reviews/{reviewId}/replies` | Reply to a customer review | `201 Created` | `400, 404, 409` | [US-9](../docs/PokeVerseSRS.md) |
+| `PUT` | `/api/providers/{providerId}/reviews/{reviewId}/replies` | Update an existing reply | `200 OK` | `400, 404` | [US-9](../docs/PokeVerseSRS.md) |
+
+### Example Seller Reply
+
+```http
+POST /api/providers/1/reviews/1/replies
+Content-Type: application/json
+
+{
+  "sellerReply": "Thank you for your purchase!"
+}
+```
+
+The same JSON structure is used when updating an existing reply:
+
+```http
+PUT /api/providers/1/reviews/1/replies
+Content-Type: application/json
+
+{
+  "sellerReply": "Thank you for your feedback and support!"
+}
+```
+
+Providers can only reply to reviews associated with their own listings.
+
+A Provider's sales statistics include:
+
+- Total orders.
+- Total revenue.
+- Total card quantities sold.
+- Number of unique customers.
+
+Statistics are calculated from the Order and OrderItem records associated with the Provider's listings.
+
+# Database and JPA Relationships
+
+PokeVerse uses PostgreSQL hosted on Neon.
+
+The primary entities are:
+
+- Customer
+- Provider
+- CardListing
+- Order
+- OrderItem
+- Review
+
+Relationships are implemented using JPA annotations such as `@ManyToOne`, `@JoinColumn`, and `@GeneratedValue`.
+
+The project uses DTOs for requests and selected responses to control JSON data and avoid serialization problems.
+
+**Neon database branches:**
+
+| Branch | Purpose |
+|---|---|
+| `customer-dev` | Customer API development |
+| `provider-dev` | Provider API development |
+| `production` | Shared database for the deployed application |
+
+Development branches are isolated. Their data does not automatically transfer to production.
+
+The deployed Customer and Provider APIs both use the same production database.
+
+# Docker and Render Deployment
+
+PokeVerse is deployed using Docker and Render.
+
+**Render URL:** https://pokeverse-fk54.onrender.com
+
+**Live Card API:** https://pokeverse-fk54.onrender.com/api/cards
+
+**Docker Configuration:**
+
+- Dockerfile location: `backend-api/Dockerfile`
+- Multi-stage Docker build.
+- Java 25 JDK used for compiling.
+- Java 25 JRE used for running.
+- Maven Wrapper builds the executable JAR.
+- Spring Boot runs using `java -jar`.
+- Database credentials are provided through environment variables.
+
+**Render Configuration:**
+
+| Setting | Value |
+|---|---|
+| Repository | `ziyad-mou/csc340-project` |
+| Branch | `main` |
+| Language | Docker |
+| Root Directory | `backend-api` |
+| Instance | Free |
+| Database | Neon PostgreSQL |
+| Database Branch | `production` |
+| Environment Variable | `SPRING_DATASOURCE_URL` |
+
+The application uses:
+
+```properties
+spring.application.name=pokeverse
+spring.jpa.hibernate.ddl-auto=update
+server.port=${PORT:8080}
+spring.jpa.open-in-view=false
+```
+
+The database password and JDBC connection string are not stored in the GitHub repository.
+
+**Cold Start:** Render Free services may sleep after inactivity. The first request may take approximately one minute while the service starts.
+
+# Local Development
+
+The application requires JDK 25 and a Neon PostgreSQL connection string.
+
+From the project root:
+
+```bash
+cd backend-api
+```
+
+On macOS, enter the Neon JDBC connection string without displaying it:
+
+```bash
+read -rs "SPRING_DATASOURCE_URL?Paste Neon JDBC URL: "
+export SPRING_DATASOURCE_URL
+```
+
+Start the backend:
+
+```bash
+./mvnw spring-boot:run
+```
+
+The local API is available at:
+
+http://localhost:8080/api/cards
+
+Use the `customer-dev` or `provider-dev` database branch for ordinary development testing.
+
+# Testing and Integration
+
+The API was developed and tested using EchoAPI, curl, and the Neon SQL Editor.
+
+### Customer API Testing — Ziyad Abdelhamid
+
+- Customer profile creation, retrieval, and updates.
+- Validation and duplicate email handling.
+- Card browsing and searching.
+- Order placement, purchase history, and stock updates.
+- Review creation, retrieval, and updates.
+- PostgreSQL persistence.
+
+### Provider API Implementation — Anuraj Subedi
+
+- Provider profile management.
+- Card listing creation and management.
+- Inventory updates.
+- Sales statistics.
+- Customer review retrieval.
+- Seller replies.
+
+### Shared Production Database Test
+
+The following integration operations were verified:
+
+1. Created a Provider through `POST /api/providers` — `201 Created`.
+2. Created Pikachu V through `POST /api/providers/1/cards` — `201 Created`.
+3. Retrieved the new listing through `GET /api/cards` — `200 OK`.
+4. Confirmed that both the local Spring Boot API and deployed Render API returned the shared listing.
+
+This verifies that the Provider Card Listing API and Customer Card Browsing API share data through Neon production.
+
+The full purchase, review, and seller-reply workflow still requires final end-to-end verification.
+
+# Current Limitations
+
+- The HTML/CSS frontend prototype is not yet connected to the REST API.
+- Authentication and authorization are not fully implemented.
+- Online payment processing is not implemented.
+- A persistent backend shopping cart (US-3) is not implemented.
+- Customer IDs and Provider IDs in request paths or bodies are not a substitute for authenticated identity.
+
+The scope of this milestone is the backend REST API, database persistence, and cloud deployment.
+
+# GitHub Repository
+
+**Repository:**  
+https://github.com/ziyad-mou/csc340-project
+
+**Backend API Folder:**  
+https://github.com/ziyad-mou/csc340-project/tree/main/backend-api
+
+**Live Render Deployment:**  
+https://pokeverse-fk54.onrender.com
+
+---
+
+**PokeVerse — CSC 340 Software Engineering**
+
+**Ziyad Abdelhamid — Customer Backend API**
+
+**Anuraj Subedi — Provider Backend API**
