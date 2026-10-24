@@ -199,11 +199,13 @@ Developer: Anuraj Subedi
 | GET | /api/providers/{providerId} | View Provider profile | 200 |
 | PUT | /api/providers/{providerId} | Update Provider profile | 200 |
 | DELETE | /api/providers/{providerId} | Delete empty Provider profile | 204 |
+
 | POST | /api/providers/{providerId}/cards | Create listing | 201 |
 | GET | /api/providers/{providerId}/cards | View own listings | 200 |
 | GET | /api/providers/{providerId}/cards/{cardId} | View listing | 200 |
 | PUT | /api/providers/{providerId}/cards/{cardId} | Update listing | 200 |
 | DELETE | /api/providers/{providerId}/cards/{cardId} | Delete unused listing | 204 |
+
 | PUT | /api/providers/{providerId}/cards/{cardId}/inventory | Update stock | 200 |
 | GET | /api/providers/{providerId}/statistics | View sales statistics | 200 |
 | GET | /api/providers/{providerId}/reviews | View buyer reviews | 200 |
