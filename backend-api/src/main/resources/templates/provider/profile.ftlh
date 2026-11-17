@@ -24,7 +24,11 @@
                 <a class="action-link" href="/seller/profile/${providerId?c}/edit">
                     Edit profile
                 </a>
-
+                
+                <a class="action-link" href="/seller/profile/${providerId?c}/listings">
+                    View listings
+                </a>
+                
                 <#if deleteError??>
                     <p role="alert">${deleteError}</p>
                 </#if>
