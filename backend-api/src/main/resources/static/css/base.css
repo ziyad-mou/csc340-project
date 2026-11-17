@@ -107,21 +107,21 @@ main h2 {
     z-index: 1000;
 }
 
+
+/* Text logo fallback */
+.logo {
+    font-size: 34px;
+    font-weight: bold;
+    color: #e63946;
+}
+
+/* Image logo */
 .logo img {
     height: 65px;
     width: auto;
     display: block;
 }
 
-
-
-/* Image logo */
-
-.logo img {
-    height: 85px;
-    width: auto;
-    display: block;
-}
 
 
 /* Navigation links */
