@@ -1,0 +1,372 @@
+
+/* ==========================================
+   POKEVERSE - SEARCH PAGE REFINEMENTS
+   Loaded after customer.css
+========================================== */
+
+/* Page heading */
+
+.search-page-header {
+    width: min(1120px, calc(100% - 48px));
+    max-width: none;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 44px 0 20px;
+}
+
+.search-page-header .section-label {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+}
+
+.search-page-header h1 {
+    font-size: clamp(30px, 3vw, 40px);
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    margin: 0 0 12px;
+}
+
+.search-page-header > p:not(.section-label) {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+/* Search bar */
+
+.marketplace-search {
+    max-width: 680px;
+    gap: 10px;
+}
+
+.marketplace-search input {
+    min-height: 48px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.marketplace-search button {
+    min-height: 48px;
+    padding: 12px 26px;
+    font-size: 14px;
+}
+
+/* ==========================================
+   FILTERS AND RESULTS LAYOUT
+========================================== */
+
+.marketplace-container {
+    width: min(1120px, calc(100% - 48px));
+    max-width: none;
+    box-sizing: border-box;
+
+    display: grid;
+    grid-template-columns: 225px minmax(0, 1fr);
+    gap: 28px;
+
+    margin: 0 auto;
+    padding: 22px 0 72px;
+    align-items: start;
+}
+
+/* Filter panel */
+
+.marketplace-filters {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(17, 24, 39, 0.03);
+}
+
+.filters-heading h2 {
+    font-size: 20px;
+    margin: 0;
+}
+
+.filter-dropdown summary {
+    font-size: 13px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.filter-options label {
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+/* Product heading and sorting */
+
+.marketplace-results {
+    min-width: 0;
+}
+
+.results-toolbar {
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 16px;
+}
+
+.results-toolbar h2 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.sort-control {
+    font-size: 13px;
+}
+
+.sort-control select {
+    font-size: 13px;
+    padding: 9px 12px;
+}
+
+/* ==========================================
+   PRODUCT GRID
+========================================== */
+
+.marketplace-card-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+    gap: 20px;
+    align-items: stretch;
+}
+
+/* Product card */
+
+.marketplace-card {
+    width: 100%;
+    max-width: 310px;
+    min-width: 0;
+    box-sizing: border-box;
+
+    border-radius: 14px;
+    overflow: hidden;
+
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+
+    box-shadow: 0 5px 18px rgba(15, 23, 42, 0.05);
+}
+
+.marketplace-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 9px 24px rgba(15, 23, 42, 0.09);
+}
+
+/* ==========================================
+   PRODUCT IMAGE
+========================================== */
+
+.marketplace-card-image {
+    width: 100%;
+    height: 205px;
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 22px;
+    overflow: hidden;
+
+    background: #fafbfe;
+    border-bottom: 1px solid #f1f3f6;
+}
+
+.marketplace-card-image img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+    max-width: 170px;
+    max-height: 170px;
+
+    object-fit: contain;
+}
+
+/* ==========================================
+   PRODUCT DETAILS
+========================================== */
+
+.marketplace-card .marketplace-card-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    min-width: 0;
+    padding: 20px;
+
+    text-align: left;
+}
+
+.marketplace-card .card-category {
+    font-size: 11px;
+    letter-spacing: 0.9px;
+    margin-bottom: 9px;
+}
+
+.marketplace-card-content h3 {
+    font-size: 19px;
+    line-height: 1.35;
+    margin: 0 0 10px;
+}
+
+.marketplace-card .card-condition {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.marketplace-card .card-price {
+    font-size: 23px;
+    line-height: 1.3;
+
+    margin: 12px 0;
+}
+
+.marketplace-card-content form {
+    margin-top: auto;
+}
+
+/* Add to cart button */
+
+.marketplace-card .add-cart-btn {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+
+    margin-top: 12px;
+    min-height: 44px;
+    padding: 11px 14px;
+
+    background: #f4c430;
+    color: #111827;
+
+    border: 1px solid #d5ad27;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.marketplace-card .add-cart-btn:hover {
+    background: #ffd84d;
+}
+
+.marketplace-card .add-cart-btn:focus-visible {
+    outline: 3px solid #111827;
+    outline-offset: 3px;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 850px) {
+
+    .marketplace-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .marketplace-filters {
+        max-width: none;
+    }
+
+    .marketplace-card-grid {
+        grid-template-columns:
+            repeat(auto-fill, minmax(min(100%, 230px), 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+
+    .search-page-header,
+    .marketplace-container {
+        width: calc(100% - 32px);
+    }
+
+    .search-page-header {
+        padding-top: 32px;
+    }
+
+    .search-page-header h1 {
+        font-size: 30px;
+    }
+
+    .marketplace-search {
+        flex-direction: column;
+    }
+
+    .marketplace-search button {
+        width: 100%;
+    }
+
+    .results-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .marketplace-card-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .marketplace-card {
+        max-width: none;
+    }
+}
+/* Keep footer at the bottom of short pages */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.marketplace-container {
+    flex: 1;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+/* ==========================================
+   IMPROVED PRODUCT IMAGE SIZES
+========================================== */
+
+.marketplace-card-image {
+    height: 220px;
+    padding: 12px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.marketplace-card-image img {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Keep the fallback Poké Ball smaller */
+.marketplace-card-image img[src$="/poke.png"] {
+    max-width: 135px;
+    max-height: 135px;
+}
+
+/* Enlarge actual Pokémon product artwork */
+.marketplace-card-image img:not([src$="/poke.png"]) {
+    transform: scale(1.45);
+    transform-origin: center;
+}
+
+/* Keep the Poké Ball placeholder unchanged */
+.marketplace-card-image img[src$="/poke.png"] {
+    transform: none;
+}
