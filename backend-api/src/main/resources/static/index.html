@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokeVerse Seller Center</title>
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/provider.css">
+</head>
+<body>
+    <main class="seller-main">
+        <div class="page-heading">
+            <h1>PokeVerse Seller Center</h1>
+        </div>
+
+        <section class="panel" aria-label="Seller profiles and listings">
+            <a class="button" href="/seller/profile/new">Create seller profile</a>
+
+            <form method="get" action="/seller/profile">
+                <label for="providerId">Existing seller profile ID</label>
+                <input id="providerId" name="providerId"
+                       inputmode="numeric" pattern="[0-9]+" required>
+                <button type="submit">Open seller profile</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
