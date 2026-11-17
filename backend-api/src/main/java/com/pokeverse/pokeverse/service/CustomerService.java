@@ -1,13 +1,14 @@
+
 package com.pokeverse.pokeverse.service;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.pokeverse.pokeverse.entity.Customer;
 import com.pokeverse.pokeverse.repository.CustomerRepository;
-
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.server.ResponseStatusException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Service
 public class CustomerService {
@@ -42,6 +43,37 @@ public class CustomerService {
         customer.setShippingAddress(shippingAddress);
 
         return customerRepository.save(customer);
+    }
+
+    // Verify customer login
+    @Transactional(readOnly = true)
+    public Customer authenticateCustomer(
+            String email,
+            String password) {
+
+        if (email == null || email.isBlank()
+                || password == null || password.isBlank()) {
+            throw new IllegalArgumentException(
+                    "Invalid email or password."
+            );
+        }
+
+        Customer customer = customerRepository
+                .findByEmail(email.trim())
+                .orElseThrow(() -> new IllegalArgumentException(
+                        "Invalid email or password."
+                ));
+
+        if (!passwordEncoder.matches(
+                password,
+                customer.getPasswordHash())) {
+
+            throw new IllegalArgumentException(
+                    "Invalid email or password."
+            );
+        }
+
+        return customer;
     }
 
     // Get customer by ID

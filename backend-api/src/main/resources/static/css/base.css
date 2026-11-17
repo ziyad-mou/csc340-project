@@ -90,13 +90,14 @@ main h2 {
    NAVBAR
 ========================================================= */
 
+
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    padding: 16px 7%;
-    min-height: 100px;
+    padding: 10px 7%;
+    min-height: 75px;
 
     background: white;
     border-bottom: 1px solid #e5e7eb;
@@ -108,21 +109,19 @@ main h2 {
 
 
 /* Text logo fallback */
-
 .logo {
     font-size: 34px;
     font-weight: bold;
     color: #e63946;
 }
 
-
 /* Image logo */
-
 .logo img {
-    height: 85px;
+    height: 65px;
     width: auto;
     display: block;
 }
+
 
 
 /* Navigation links */
